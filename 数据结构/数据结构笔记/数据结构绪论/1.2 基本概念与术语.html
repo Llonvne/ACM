@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1.2 基本概念与术语</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="bear-note-unique-identifier" content="29644752-0559-44AD-B990-37A22A99A8BD-21521-000001494F6B2C0E">
+        <meta name="created" content="2021-08-17T07:41:19+0800"/>
+        <meta name="modified" content="2021-08-17T11:11:34+0800"/>
+        <meta name="tags" content="数据结构"/>
+        <meta name="last device" content="Llonvne 's MacBook Pro"/>
+    </head>
+    <body>
+        <div class="note-wrapper">
+            <h1 id="1.2 基本概念与术语">1.2 基本概念与术语 </h1>
+<p><span class='hashtag'>#数据结构</span></p>
+<br>
+<hr>
+<br>
+<h2 id="数据">数据</h2>
+<br>
+<p><mark>定义</mark>能被输入计算机且能被计算机处理的各种符号的符号的集合</p>
+<br>
+<p>数据是:</p>
+<ul><li>信息的载体
+</li><li>对客观事物符号化的表示
+</li><li>能够被计算机识别存储和加工
+</li></ul>
+<br>
+<p>数据包括:</p>
+<ul><li>数值型数据 : 整数 实数
+</li><li>非数值型数据 : 文字 图像 图形 声音 等
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="数据元素">数据元素</h2>
+<br>
+<p><mark>定义</mark> 是数据的基本元素,在计算机程序中通常作为一个整体考虑(常常可能是表格中的一条)</p>
+<br>
+<p>有时候直接简称为元素,有时候也被称为记录,结点,顶点</p>
+<br>
+<p>一个数据元素可以由多个数据项组成</p>
+<br>
+<hr>
+<br>
+<h2 id="数据项">数据项</h2>
+<br>
+<p><mark>定义</mark>构成数据元素的不可分割的最小单位</p>
+<br>
+<hr>
+<br>
+<h2 id="数据对象">数据对象</h2>
+<br>
+<p><mark>定义</mark>是性质相投的数据的一个子集</p>
+<br>
+<p>是数据的一个子集</p>
+<br>
+<hr>
+<br>
+<h2 id="数据元素与数据对象的关系:">数据元素与数据对象的关系:</h2>
+<ul><li>数据元素 - 组成数据的基本单位 - 与数据的关系: 是集合的个体
+</li><li>数据对象  - 性质相同的数据元素的集合  与数据的关系:是集合的子集
+</li><li>一个数据元素 也是集合的子集,多个数据元素也是集合的子集,所以数据对象这一概念大于数据元素
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="数据结构">数据结构</h2>
+<br>
+<p><mark>定义</mark></p>
+<ul><li>数据元素之间不是独立存在的,他们之间存在某种关系,数据元素相互之间的关系叫做结构
+</li><li>是指相互之间存在的一种或多种特定关系的数据元素集合
+</li><li>或者说 数据结构是带结构的数据元素的集合
+</li></ul>
+<br>
+<p>数据结构包含以下三个方面:</p>
+<ul><li>数据元素之间的逻辑关系, 也称为逻辑结构
+</li><li>数据元素及其关系在计算机内存中的表示(又称映像),称为数据的物理结构或数据的存储结构
+</li><li>数据的运算和实现,即对数据元素可以施加的操作以这些操作在相应的存储结构上的实现
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="数据结构中的逻辑结构">数据结构中的逻辑结构</h2>
+<br>
+<ul><li>描述数据元素之间的逻辑关系
+</li><li>逻辑关系与存储无关,独立于计算机
+</li><li>是从具体问题中抽象出来的数学模型
+</li></ul>
+<br>
+<h3 id="种类:">种类:</h3>
+<ol start="1"><li>线性结构(一对一)
+</li></ol>
+<p>有且只有一个开始和终结结点,且所有结点都最多只有一个直接前趋和一个直接后继</p>
+<p>例如 : 线性表 栈 队列 串</p>
+<ol start="2"><li>非线性结构(一对多 …)
+</li></ol>
+<p>一个结点可能有多个直接前趋和直接后继</p>
+<br>
+<h3 id="第二种分类方法">第二种分类方法</h3>
+<ol start="1"><li>集合 : 结构中数据元素之间除了同属于一个集合的关系外,无其他任何关系
+</li><li>线性 :  结构中数据元素之间存在一对一对线性关系
+</li><li>树 : 结构中数据元素之间存在一对多的层次关系
+</li><li>图 : 结构中的数据元素之间存在多对多的任意关系
+</li></ol>
+<br>
+<hr>
+<br>
+<h2 id="物理结构(存储结构)">物理结构(存储结构)</h2>
+<br>
+<ul><li>数据元素及其关系在计算机存储器中的结构(存储方式)
+</li><li>是数据结构在计算机中表示
+</li></ul>
+<br>
+<h3 id="种类:">种类:</h3>
+<ol start="1"><li>顺序存储结构
+</li></ol>
+<blockquote>
+<p>用一组连续的存储单元依次存储数据元素,数据元素之间的逻辑关系由元素的存储位置表示</p>
+<p>C语言:数组实现</p>
+</blockquote>
+<ol start="2"><li>链式存储结构
+</li></ol>
+<blockquote>
+<p>用一组任意的存储单元来储存数据,数据元素之间的逻辑关系用指针保存</p>
+<p>C语言用指针来实现链式存储结构</p>
+</blockquote>
+<ol start="3"><li>索引存储结构
+</li></ol>
+<p>在储存结点信息的同时,还建立附加的索引表</p>
+<ol start="5"><li>散列存储结构
+</li></ol>
+<blockquote>
+<p>通过该结点的关键字直接计算得出该结点存储为自豪</p>
+</blockquote>
+<br>
+<hr>
+<br>
+<h2 id="逻辑结构和存储结构的关系">逻辑结构和存储结构的关系</h2>
+<br>
+<ul><li>存储结构是逻辑关系的映像和元素本身的印象
+</li><li>逻辑结构的是数据结构的抽象,存储结构是数据结构的实现
+</li><li>两者综合起来建立了数据元素的结构关系
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="数据类型和抽象数据类型">数据类型和抽象数据类型</h2>
+<br>
+<ul><li>在使用高级程序设计语言编写程序时,必须对程序中出现的每个变量,常量和表达式,明确说明他们所属的数据类型
+</li><li>一些最基本的数据结构可以用数据结构来实现
+</li><li>而另一些常用的数据结构如栈,队列… 不能直接用数据类型来实现
+</li><li>高级语言的数据类型明显或者隐含的规定了程序执行期间变量和表达的所有可能范围的取值
+</li><li>以及在这些数值范围上所允许进行的操作
+</li><li>数据类型的作用 1.约束常量变量的取值范围,2.约束常量变量的操作
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="数据类型">数据类型</h2>
+<br>
+<p><mark>定义</mark> 一组性质相同的值的集合以及定义于这个值集合上的一组操作的总称</p>
+<br>
+<p>数据类型 = 值的集合 + 值集合上的一组操作</p>
+<br>
+<hr>
+<br>
+<h2 id="抽象数据类型">抽象数据类型</h2>
+<br>
+<p><mark>定义</mark> 是指一个数学模型以及定义在此数学模型的一系列操作</p>
+<br>
+<ul><li>由用户定义，从问题抽象出的数据模型（逻辑结构）
+</li><li>还包括定义在数据模型上的一组抽象运算（相关操作）
+</li><li>不考虑计算机内部具体存储和实现
+</li></ul>
+<br>
+<h3 id="抽象数据类型的形式定义：">抽象数据类型的形式定义：</h3>
+<blockquote>
+<p>抽象数据类型可以用 （D， S ，P） 三元组表示</p>
+<p>其中 D 是数据对象</p>
+<p>S 是 D上的关系集</p>
+<p>P 是对 D 的基本操作集</p>
+</blockquote>
+<br>
+<h3 id="一个抽象数据类型的定义格式如下：">一个抽象数据类型的定义格式如下：</h3>
+<pre><code class='code-multiline'>ADT 抽象数据类型名 {
+	数据对象 &lt;数据对象的定义&gt;
+	数据关系 &lt;数据关系的定义&gt;
+	基本操作 &lt;基本操作的定义&gt;
+} ADT 抽象类型数据名</code></pre>
+<p><br></p>
+<p>其中：数据对象，数据关系的定义用伪代码描述</p>
+<br>
+<h3 id="基本操作的定义格式为">基本操作的定义格式为</h3>
+<pre><code class='code-multiline'>基本操作名 （参数表）
+初始条件 &lt;初始条件描述&gt;
+操作结果 &lt;操作结果描述&gt;</code></pre>
+<p><br></p>
+<h4 id="格式说明：">格式说明：</h4>
+<h5 id="参数表：">参数表：</h5>
+<p>赋值参数 只为操作提供初始值</p>
+<p>引用参数 以&（C语言中取地址符）打头，除了可以提供初始值外，还可以返回结果</p>
+<h5 id="初始条件:">初始条件:</h5>
+<p>描述操作执行之前，数据结构和参数应该满足的条件，若不满足，则操作失败，并返回相应错误信息，若初始条件为空，则忽略</p>
+<h5 id="操作结果：">操作结果：</h5>
+<p>说明操作正常结束后，数据结构状态的变化和应该返回的结果</p>
+<br>
+<hr>
+<br>
+<h2 id="例子">例子</h2>
+<br>
+<p>定义一个抽象的数据类型</p>
+<br>
+<pre><code class='code-multiline'>ADT 抽象数据类型名 {
+	Data
+		数据对象的定义
+		数据元素之间逻辑关系的定义
+	Operation
+		操作一
+			初始条件
+			操作结果描述
+		操作二
+			...
+		...
+} ADT 抽象类型数据名</code></pre>
+<p><br></p>
+<br>
+<h3 id="定义一个圆">定义一个圆</h3>
+<br>
+<pre><code class='code-multiline'>ADT Circle {
+	Data
+		数据对象： D = {r, x, y| r, x ,y 均为实数}
+		数据关系： R = {&lt; r, x, y&gt;| r是半径，&lt;x,y&gt;是圆心坐标}
+	Operation
+		基本操作:
+			Circle(&C,r,x,y) //操作结果： 构造一个圆
+			double Area(C)
+				初始条件：圆已经存在
+				操作结果：计算面积
+			double Circumference(C)
+				初始条件：圆已经存在
+				操作结果：计算周长
+			...
+} ADT Circle</code></pre>
+<p><br></p>
+<hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+        </div>
+        <script type="text/javascript">
+            (function() {
+
+    var doc_ols = document.getElementsByTagName("ol");
+
+    for ( i=0; i<doc_ols.length; i++) {
+
+        var ol_start = doc_ols[i].getAttribute("start") - 1;
+        doc_ols[i].setAttribute("style", "counter-reset:ol_counter " + ol_start + ";");
+
+    }
+
+})();
+
+        </script>
+        <style>
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:87.5%;line-height:1.57143em}html{font-size:14px;line-height:1.6em;-webkit-text-size-adjust:100%}body{background:#fcfcfc;color:#545454;text-rendering:optimizeLegibility;font-family:"AvenirNext-Regular"}a{color:#de4c4f;text-decoration:none}h1{font-family:"AvenirNext-Medium";color:#333;font-size:1.6em;line-height:1.3em;margin-bottom:.78571em}h2{font-family:"AvenirNext-Medium";color:#333;font-size:1.3em;line-height:1em;margin-bottom:.62857em}h3{font-family:"AvenirNext-Medium";color:#333;font-size:1.15em;line-height:1em;margin-bottom:.47143em}p{margin-bottom:1.57143em;hyphens:auto}hr{height:1px;border:0;background-color:#dedede;margin:-1px auto 1.57143em auto}ul,ol{margin-bottom:.31429em}ul ul,ul ol,ol ul,ol ol{margin-bottom:0px}ol{counter-reset:ol_counter}ol li:before{content:counter(ol_counter) ".";counter-increment:ol_counter;color:#e06e73;text-align:right;display:inline-block;min-width:1em;margin-right:0.5em}b,strong{font-family:"AvenirNext-Bold"}i,em{font-family:"AvenirNext-Italic"}code{font-family:"Menlo-Regular"}.text-overflow-ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sf_code_string,.sf_code_selector,.sf_code_attr-name,.sf_code_char,.sf_code_builtin,.sf_code_inserted{color:#D33905}.sf_code_comment,.sf_code_prolog,.sf_code_doctype,.sf_code_cdata{color:#838383}.sf_code_number,.sf_code_boolean{color:#0E73A2}.sf_code_keyword,.sf_code_atrule,.sf_code_rule,.sf_code_attr-value,.sf_code_function,.sf_code_class-name,.sf_code_class,.sf_code_regex,.sf_code_important,.sf_code_variable,.sf_code_interpolation{color:#0E73A2}.sf_code_property,.sf_code_tag,.sf_code_constant,.sf_code_symbol,.sf_code_deleted{color:#1B00CE}.sf_code_macro,.sf_code_entity,.sf_code_operator,.sf_code_url{color:#920448}.note-wrapper{max-width:46em;margin:0px auto;padding:1.57143em 3.14286em}.note-wrapper.spotlight-preview{overflow-x:hidden}u{text-decoration:none;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#e06e73 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}s{color:#878787}p{margin-bottom:0.1em}hr{margin-bottom:0.7em;margin-top:0.7em}ul li{text-indent:-0.35em}ul li:before{content:"•";color:#e06e73;display:inline-block;margin-right:0.3em}ul ul{margin-left:1.25714em}ol li{text-indent:-1.45em}ol ol{margin-left:1.25714em}blockquote{display:block;margin-left:-1em;padding-left:0.8em;border-left:0.2em solid #e06e73}.todo-list ul{margin-left:1.88571em}.todo-list li{text-indent:-1.75em}.todo-list li:before{content:"";display:static;margin-right:0px}.todo-checkbox{text-indent:-1.7em}.todo-checkbox svg{margin-right:0.3em;position:relative;top:0.2em}.todo-checkbox svg #check{display:none}.todo-checkbox.todo-checked #check{display:inline}.todo-checkbox.todo-checked+.todo-text{text-decoration:line-through;color:#878787}.code-inline{display:inline;background:white;border:solid 1px #dedede;padding:0.2em 0.5em;font-size:0.9em}.code-multiline{display:block;background:white;border:solid 1px #dedede;padding:0.7em 1em;font-size:0.9em;overflow-x:auto}.hashtag{display:inline-block;color:white;background:#b8bfc2;padding:0.0em 0.5em;border-radius:1em;text-indent:0}.hashtag a{color:#fff}.address a{color:#545454;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#0da35e 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}.address svg{position:relative;top:0.2em;display:inline-block;margin-right:0.2em}.color-preview{display:inline-block;width:1em;height:1em;border:solid 1px rgba(0,0,0,0.3);border-radius:50%;margin-right:0.1em;position:relative;top:0.2em;white-space:nowrap}.color-code{margin-right:0.2em;font-family:"Menlo-Regular";font-size:0.9em}.color-hash{opacity:0.4}.ordered-list-number{color:#e06e73;text-align:right;display:inline-block;min-width:1em}.arrow svg{position:relative;top:0.08em;display:inline-block;margin-right:0.15em;margin-left:0.15em}.arrow svg #rod{stroke:#545454}.arrow svg #point{fill:#545454}mark{color:inherit;display:inline;padding:0.2em 0.5em;background-color:#fcffc0}img{max-width:100%;height:auto}
+
+        </style>
+    </body>
+</html>
