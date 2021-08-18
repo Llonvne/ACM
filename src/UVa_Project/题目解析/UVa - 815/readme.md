@@ -1,6 +1,6 @@
 ### 题目名称 UVa - 815 - flooded
 
-### B站视频链接： https://github.com/Llonvne/ACM/tree/main/src/UVa_Project/题目解析/UVa%20-%20815
+### B站视频链接： https://www.bilibili.com/video/BV1GL4y1v7bf/
 
 ### 题目状态：已经AC
 
