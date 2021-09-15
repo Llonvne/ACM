@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1. 计算机网络体系结构</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="bear-note-unique-identifier" content="A90B6999-89BC-442E-BC54-7CD615A0C561-45010-000002BDAEF0C915">
+        <meta name="created" content="2021-09-15T18:11:51+0800"/>
+        <meta name="modified" content="2021-09-15T19:08:02+0800"/>
+        <meta name="tags" content="计算机网络"/>
+        <meta name="last device" content="Llonvne 's MacBook Pro"/>
+    </head>
+    <body>
+        <div class="note-wrapper">
+            <h1 id="1. 计算机网络体系结构">1. 计算机网络体系结构</h1>
+<p><span class='hashtag'>#计算机网络</span></p>
+<br>
+<hr>
+<br>
+<h1 id="1.1 计算机网络概述">1.1 计算机网络概述</h1>
+<hr>
+<br>
+<h2 id="1.1.1 计算机网络的概念： 计算机网络是一个互联的自治的计算机系统集合。">1.1.1 计算机网络的概念： 计算机网络是一个互联的自治的计算机系统集合。</h2>
+<br>
+<hr>
+<br>
+<h2 id="1.1.2 计算机网络的组成：">1.1.2 计算机网络的组成：</h2>
+<ul><li>组成部分来看：由硬件，软件，协议三大部分组成
+</li><li>工作方式：可分为边缘部分，和核心部分，其中边缘部分多为用户直接使用的主机，而核心部分为路由器。
+</li><li>功能组成：可分为通信子网和相应的网络协议组成
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="1.1.3 计算机网络的能力：">1.1.3 计算机网络的能力：</h2>
+<ul><li>数据通信
+</li><li>资源共享
+</li><li>分布式处理
+</li><li>提高可靠性
+</li><li>负载均衡
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="1.1.4 计算机网络的分类：">1.1.4 计算机网络的分类：</h2>
+<h3 id="按照分布范围来分：">按照分布范围来分：</h3>
+<ul><li>广域网（WAN）
+</li><li>城域网（MAN）
+</li><li>局域网（LAN）
+</li><li>个域网（PAN）
+</li></ul>
+<br>
+<blockquote>
+<p>如果中央处理器之间距离非常近（如部分显卡）一般称为多处理器系统不称为网络</p>
+</blockquote>
+<br>
+<h3 id="按传输技术分类：">按传输技术分类：</h3>
+<ul><li>广播式网络 ： 局域网，或者广域网中的无线，卫星通信网络
+</li><li>点对点式网络 ： 除以上之上的广域网
+</li></ul>
+<br>
+<h3 id="按拓扑结构分类：">按拓扑结构分类：</h3>
+<ul><li>总线形： 用单根传输线将电脑连接起来，优点：建网容易，增加删除结点方便，节省线路，缺点：重负载时效率不高，总线任意一处对于故障敏感
+</li><li>星形：每个终端或者计算机都以单独的线路连接到中央设备，优点：便于集中控制和管理，缺点：成本高，对于中心设备故障敏感
+</li><li>环形：所有的计算机接口连成一个环 例子：令牌环局域网
+</li><li>网状：一般情况下每个节点至少有两条路径与其他节点相连多用在广域网，优点：可靠性高，缺点：控制复杂，成本高
+</li></ul>
+<br>
+<h3 id="按使用者分类：">按使用者分类：</h3>
+<ul><li>公用网：指电信公司制造的网络，一般付费即可使用
+</li><li>专用网：满足某些特殊需求所建造的网络，一般不像外人提供服务：铁路，军队等网络
+</li></ul>
+<br>
+<h3 id="按交换技术分类：">按交换技术分类：</h3>
+<ul><li>电路交换网络 ： 在源节点和目标节点直接拉线传输
+</li><li>报文交换网络 ： 将要发送的东西封装成报文，经过其他节点中转
+</li><li>分组交换网络 ： （包交换网络） 将数据分成长短固定的数据块（上者不固定） 易于管理，延迟低，广泛使用
+</li></ul>
+<br>
+<h3 id="按传输介质分类：">按传输介质分类：</h3>
+<ul><li>有线
+</li><li>无线
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="1.1.5 计算机网络的标准化工作及相关组织">1.1.5 计算机网络的标准化工作及相关组织</h2>
+<br>
+<h3 id="因特网标准的建立">因特网标准的建立</h3>
+<blockquote>
+<p>因特网的所有标准都要以 RFC 的形式在因特网发布，但并非每个 RFC 都是因特网标准，RFC 要上升为因特网的正式标准要经过以下四个步骤</p>
+</blockquote>
+<ol start="1"><li>因特网草案 非RFC
+</li><li>建议标准  是RFC
+</li><li>草案标准 是RFC
+</li><li>因特网标准 是RFC
+</li></ol>
+<br>
+<h3 id="负责制定和实施相关网络的标准化组织：">负责制定和实施相关网络的标准化组织：</h3>
+<ul><li>国际标准化组织 ISO
+</li><li>国际电信联盟 ITU 其前身为 国际电话电报咨询委员会 CCITT 其下属机构 ITU-T
+</li><li>国际电气电子工程师协会 IEEE 最成功是 802 标准
+</li></ul>
+<br>
+<hr>
+<br>
+<h2 id="计算机网络的性能指标">计算机网络的性能指标</h2>
+<br>
+<ul><li>宽带： 原本指通信线路允许通过的信号的频段范围，单位是HZ，在计算机网络中带宽表示网络的通信线路所能传送数据的能力，是数字信道所能传送的最高数据传输速率，单位是 比特/秒 （bit/s）
+</li><li>时延： 指数据（一个报文或者分组）从网络的一端传送到另外一端所需要的总时间：
+</li></ul>
+<p>他由四个部分组成，分别为</p>
+<ol start="1"><li>发送时延： 是指节点把所有数据推向链路所需要的时间，即从分组第一个比特开始算起，算到该分组最后一个比特发送完毕公式为
+</li></ol>
+<pre><code class='code-multiline'>发送时延 = 分组长度 / 信道宽度
+</code></pre><ol start="2"><li>传播时延： 电磁波在信道中传输一定的距离所花费的时间，即一个比特从脸熟的一端传播到另一端所需要的时间，公式为：
+</li></ol>
+<pre><code class='code-multiline'>传播时延 = 信道长度 / 电磁波在信道上的传播速度
+</code></pre><ol start="3"><li>处理时延： 数据在交换节点为存储转发而进行的一些必要的处理所话费的时间，比如说进行奇偶核对，或者寻找下一个交换节点什么的
+</li><li>排队时延： 分组在进入路由器要现在输入队列中排队等待处理，路由器确定转发端口后还要在输出队列中等待转发
+</li></ol>
+<br>
+<blockquote>
+<p>总结 ： 发送时延就是你把数据推送到网路上所需要的时间</p>
+<p>传播时延就是电磁波在电线里面传输所需要的时间</p>
+<p>处理时延：就是中间经过各种交换机所需要的时间</p>
+<p>排队时延：就是最后回到你自己的路由器，你路由器的处理时间</p>
+</blockquote>
+<br>
+<p>数据在网络中的传输的总时延就是上述四个延迟的和</p>
+<br>
+<p>一般做题不考虑排队时延和处理时延（除非题目特别写出），对于高速链路（也就是常说的高速宽带）提高的只是数据发送速率，而不是比特在链路的传播速率，提高数据的发送速率只是为了减少发送时延</p>
+<p>人话：就是你买高速宽带只能加快你把数据推送到链路的过程，而非影响你的数据在链路上的传播速度</p>
+<br>
+<ul><li>时延带宽积： 指发送端的第一个比特到达中终点，发送端一共发送了多少比特
+</li></ul>
+<pre><code class='code-multiline'>时延带宽积 = 传播时延 * 信道宽度
+</code></pre>简单理解： 就是一个水管，当终点开始出水的时候，水管里面一共有多少水
+
+<ul><li>往返时延： 就是从发送端发送数据开始到发送端收到接受端到确认总共到时延
+</li></ul>
+<p>人话：就是前面的时延你是你说话被别人听到的时间</p>
+<p>往返时延就是你说话被别人听到，别人反应过来回复你，你再收到别人的回复的时间</p>
+<br>
+<ul><li>吞吐量 ： 指单位时间内通过某个网络的（或者信道，接口）的数据量，吞吐量受到网络带宽或者网络额定速率的影响
+</li></ul>
+<p>人话：带宽代表你的整个网络的上限速率，但是你的网络不可能实时工作在最高速率，某一个时间通过网络的数据量就叫做吞吐量</p>
+<br>
+<ul><li>速率： 连接到计算机网络上的主机在数字信道上传送数据的速率，也成数据传输速率，数据率，或者比特率，单位为 b/s bit/s Kb/s Mb/s Gb/s
+</li></ul>
+<br>
+<ul><li>信道利用率 ： 指某一个信道有多百分之多少的时间是有数据通过的公式为：
+</li></ul>
+<pre><code class='code-multiline'>信道利用率 = 有数据通过的时间 / 总时间</code></pre>
+<p><br></p>
+<hr>
+        </div>
+        <script type="text/javascript">
+            (function() {
+
+    var doc_ols = document.getElementsByTagName("ol");
+
+    for ( i=0; i<doc_ols.length; i++) {
+
+        var ol_start = doc_ols[i].getAttribute("start") - 1;
+        doc_ols[i].setAttribute("style", "counter-reset:ol_counter " + ol_start + ";");
+
+    }
+
+})();
+
+        </script>
+        <style>
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:87.5%;line-height:1.57143em}html{font-size:14px;line-height:1.6em;-webkit-text-size-adjust:100%}body{background:#fcfcfc;color:#545454;text-rendering:optimizeLegibility;font-family:"AvenirNext-Regular"}a{color:#de4c4f;text-decoration:none}h1{font-family:"AvenirNext-Medium";color:#333;font-size:1.6em;line-height:1.3em;margin-bottom:.78571em}h2{font-family:"AvenirNext-Medium";color:#333;font-size:1.3em;line-height:1em;margin-bottom:.62857em}h3{font-family:"AvenirNext-Medium";color:#333;font-size:1.15em;line-height:1em;margin-bottom:.47143em}p{margin-bottom:1.57143em;hyphens:auto}hr{height:1px;border:0;background-color:#dedede;margin:-1px auto 1.57143em auto}ul,ol{margin-bottom:.31429em}ul ul,ul ol,ol ul,ol ol{margin-bottom:0px}ol{counter-reset:ol_counter}ol li:before{content:counter(ol_counter) ".";counter-increment:ol_counter;color:#e06e73;text-align:right;display:inline-block;min-width:1em;margin-right:0.5em}b,strong{font-family:"AvenirNext-Bold"}i,em{font-family:"AvenirNext-Italic"}code{font-family:"Menlo-Regular"}.text-overflow-ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sf_code_string,.sf_code_selector,.sf_code_attr-name,.sf_code_char,.sf_code_builtin,.sf_code_inserted{color:#D33905}.sf_code_comment,.sf_code_prolog,.sf_code_doctype,.sf_code_cdata{color:#838383}.sf_code_number,.sf_code_boolean{color:#0E73A2}.sf_code_keyword,.sf_code_atrule,.sf_code_rule,.sf_code_attr-value,.sf_code_function,.sf_code_class-name,.sf_code_class,.sf_code_regex,.sf_code_important,.sf_code_variable,.sf_code_interpolation{color:#0E73A2}.sf_code_property,.sf_code_tag,.sf_code_constant,.sf_code_symbol,.sf_code_deleted{color:#1B00CE}.sf_code_macro,.sf_code_entity,.sf_code_operator,.sf_code_url{color:#920448}.note-wrapper{max-width:46em;margin:0px auto;padding:1.57143em 3.14286em}.note-wrapper.spotlight-preview{overflow-x:hidden}u{text-decoration:none;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#e06e73 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}s{color:#878787}p{margin-bottom:0.1em}hr{margin-bottom:0.7em;margin-top:0.7em}ul li{text-indent:-0.35em}ul li:before{content:"•";color:#e06e73;display:inline-block;margin-right:0.3em}ul ul{margin-left:1.25714em}ol li{text-indent:-1.45em}ol ol{margin-left:1.25714em}blockquote{display:block;margin-left:-1em;padding-left:0.8em;border-left:0.2em solid #e06e73}.todo-list ul{margin-left:1.88571em}.todo-list li{text-indent:-1.75em}.todo-list li:before{content:"";display:static;margin-right:0px}.todo-checkbox{text-indent:-1.7em}.todo-checkbox svg{margin-right:0.3em;position:relative;top:0.2em}.todo-checkbox svg #check{display:none}.todo-checkbox.todo-checked #check{display:inline}.todo-checkbox.todo-checked+.todo-text{text-decoration:line-through;color:#878787}.code-inline{display:inline;background:white;border:solid 1px #dedede;padding:0.2em 0.5em;font-size:0.9em}.code-multiline{display:block;background:white;border:solid 1px #dedede;padding:0.7em 1em;font-size:0.9em;overflow-x:auto}.hashtag{display:inline-block;color:white;background:#b8bfc2;padding:0.0em 0.5em;border-radius:1em;text-indent:0}.hashtag a{color:#fff}.address a{color:#545454;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#0da35e 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}.address svg{position:relative;top:0.2em;display:inline-block;margin-right:0.2em}.color-preview{display:inline-block;width:1em;height:1em;border:solid 1px rgba(0,0,0,0.3);border-radius:50%;margin-right:0.1em;position:relative;top:0.2em;white-space:nowrap}.color-code{margin-right:0.2em;font-family:"Menlo-Regular";font-size:0.9em}.color-hash{opacity:0.4}.ordered-list-number{color:#e06e73;text-align:right;display:inline-block;min-width:1em}.arrow svg{position:relative;top:0.08em;display:inline-block;margin-right:0.15em;margin-left:0.15em}.arrow svg #rod{stroke:#545454}.arrow svg #point{fill:#545454}mark{color:inherit;display:inline;padding:0.2em 0.5em;background-color:#fcffc0}img{max-width:100%;height:auto}
+
+        </style>
+    </body>
+</html>
