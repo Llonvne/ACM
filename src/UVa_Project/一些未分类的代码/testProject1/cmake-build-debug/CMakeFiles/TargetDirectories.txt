@@ -1,0 +1,3 @@
+/Users/llonvne/Desktop/College_Study_File/Clion/testProject1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/llonvne/Desktop/College_Study_File/Clion/testProject1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/llonvne/Desktop/College_Study_File/Clion/testProject1/cmake-build-debug/CMakeFiles/testProject1.dir

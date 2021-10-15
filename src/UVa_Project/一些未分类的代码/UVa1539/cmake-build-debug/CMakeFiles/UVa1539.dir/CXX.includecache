@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/llonvne/Desktop/College_Study_File/Clion/UVa1539/main.cpp
+bits/stdc++.h
+/Users/llonvne/Desktop/College_Study_File/Clion/UVa1539/bits/stdc++.h
+

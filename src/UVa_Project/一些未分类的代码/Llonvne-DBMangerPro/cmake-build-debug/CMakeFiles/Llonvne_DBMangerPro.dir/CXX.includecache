@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/llonvne/Desktop/College_study_File/Clion/Llonvne-DBMangerPro/main.cpp
+bits/stdc++.h
+/Users/llonvne/Desktop/College_study_File/Clion/Llonvne-DBMangerPro/bits/stdc++.h
+
