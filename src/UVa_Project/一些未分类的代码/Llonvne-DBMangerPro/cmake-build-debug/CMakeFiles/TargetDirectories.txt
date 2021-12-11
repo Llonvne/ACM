@@ -1,3 +1,0 @@
-/Users/llonvne/Desktop/College_study_File/Clion/Llonvne-DBMangerPro/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/Llonvne-DBMangerPro/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/Llonvne-DBMangerPro/cmake-build-debug/CMakeFiles/Llonvne_DBMangerPro.dir

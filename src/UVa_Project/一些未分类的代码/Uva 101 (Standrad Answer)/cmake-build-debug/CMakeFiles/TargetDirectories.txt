@@ -1,3 +1,0 @@
-/Users/llonvne/CLionProjects/Uva 101 (Standrad Answer)/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/llonvne/CLionProjects/Uva 101 (Standrad Answer)/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/llonvne/CLionProjects/Uva 101 (Standrad Answer)/cmake-build-debug/CMakeFiles/Uva_101__Standrad_Answer_.dir

@@ -1,3 +1,0 @@
-/Users/llonvne/Desktop/College_study_File/Clion/HelloWorld/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/HelloWorld/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/HelloWorld/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_8cf8c.dir

@@ -1,3 +1,0 @@
-/Users/llonvne/Desktop/College_study_File/Clion/UVA540/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/UVA540/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/llonvne/Desktop/College_study_File/Clion/UVA540/cmake-build-debug/CMakeFiles/UVA540.dir

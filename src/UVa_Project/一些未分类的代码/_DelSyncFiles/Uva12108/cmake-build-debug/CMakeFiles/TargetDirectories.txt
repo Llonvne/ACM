@@ -1,3 +1,0 @@
-/Users/llonvne/CLionProjects/Uva12108/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/llonvne/CLionProjects/Uva12108/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/llonvne/CLionProjects/Uva12108/cmake-build-debug/CMakeFiles/Uva12108.dir
