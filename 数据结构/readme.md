@@ -2,7 +2,11 @@
 
 ---
 
-## 来源
+## 新来源
+
+### 视频地址：https://www.xuetangx.com/course/THU08091000384/7755489?channel=i.area.course_list_all
+
+## 旧来源 （该来源以被放入 old 文件）
 
 ### 视频地址：https://www.bilibili.com/video/BV1nJ411V7bd
 
