@@ -1,3 +1,5 @@
+// Hailstone 序列生成器
+// 两个函数一个用于获取Hailstone序列，一个用于直接获取Hailstone序列的长度。
 class Hailstone{
 public:
     static vector<int> HailstoneGenerator(int start){
