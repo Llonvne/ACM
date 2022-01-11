@@ -6,9 +6,8 @@ void reverse(int A[],int lo,int hi){
 }
 // 减而治之 递归 [lo,hi)
 void reverse(int A[],int lo,int hi){
-    if (lo >= hi){
-        return;
+    if (lo < hi){
+        swap(A[lo],A[hi-1]);
+        reverse(A,lo+1,hi-1);
     }
-    swap(A[lo],A[hi-1]);
-    reverse(A,lo+1,hi-1);
 }
