@@ -1,3 +1,10 @@
+// 接口标准化
+int arraySum(int A[],int n){
+    return sumIteration(A,n);
+    // return sumLinearRecursion(A,n);
+    // return SumFoldRecursion(A,0,n);
+}
+
 // 计算 N 个整数之和
 // 迭代版本 
 // Decrease and Conquer 减而治之 每次规模缩减 O(1)
