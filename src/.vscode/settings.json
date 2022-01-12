@@ -21,6 +21,7 @@
         "thread": "cpp",
         "tuple": "cpp",
         "valarray": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp"
     }
 }
