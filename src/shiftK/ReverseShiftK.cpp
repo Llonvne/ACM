@@ -13,4 +13,5 @@ void shiftK(int A[],int n,int k){
     reverse(A,k);
     reverse(A,k,n - k);
     reverse(A,n);
-}
+} // O(3n) 但是要比那个 O(1.5n) 快很多
+// 因为连续访问 Cache加速
