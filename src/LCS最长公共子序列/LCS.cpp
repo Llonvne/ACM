@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-// 效率比较低下的递归版本
+// 效率比较低下的递归版本 O(2^N)
 int LCS(string a,string b){
     // 有 空序列 递归基
     if (a.size() == 0 || b.size() == 0) {
@@ -24,3 +24,26 @@ int LCS(string a,string b){
         return max(aloss,bloss);
     }
 }   
+// 效率比较低下的迭代版本 O(N*M)
+int LCS(const string& a, const string& b){
+    int N = (int)a.size();
+    int M = (int)b.size();
+
+    // 快速初始化二维码 Vectror数组
+    vector<vector<int>> dp(N + 1,vector<int>(M + 1,0));
+    int maxLength = 0;
+
+    for (int i = 1; i <= N; ++i) {
+        for (int j = 1; j <= M; ++j) {
+
+            if (a[i] == b[j]){
+                dp[i][j] = dp[i-1][j-1] + 1;
+                maxLength = max(maxLength, dp[i][j]);
+            }
+            else {
+                dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+    }
+    return maxLength;
+}
