@@ -8,6 +8,7 @@ void reverse(int A[],int n){
     reverse(A,0,n);
 }
 
+// 向左移动
 // 可以用两本书理解 不妨把 0,k 理解为第一本书 k,n 理解为第二本书操作一下
 void shiftK(int A[],int n,int k){
     reverse(A,k);
