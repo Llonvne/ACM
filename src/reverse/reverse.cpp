@@ -14,3 +14,15 @@ void reverseRecursion(int A[],int lo,int hi){
         reverseRecursion(A,lo+1,hi-1);
     }
 }
+
+// vector<char> leetcode 344
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        uint32_t lo = 0,hi = s.size() - 1;
+        
+        while (lo < hi){
+            swap(s[lo++],s[hi--]);
+        }
+    }
+};
