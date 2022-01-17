@@ -1,4 +1,4 @@
-// 内联了 reverse 算法
+// 内联了 reverse 算法 此处reverse 为自己实现，而非C++提供的算法
 void reverse(int A[],int lo,int hi){
     while (lo < hi){
         swap(A[lo++],A[--hi]);
