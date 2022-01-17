@@ -9,7 +9,8 @@ int fib(int n) {
     int f = 0;
     int g = 1;
     while (n--){
-        int t = f;f = g;g = t;
+        g += f; f = g-f;
     }
     return g;
 }
+
