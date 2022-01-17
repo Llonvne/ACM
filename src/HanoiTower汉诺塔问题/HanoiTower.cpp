@@ -11,7 +11,7 @@ void Hanoi(stack<int>& SOURCE A,stack<int>& BUFFER B,stack<int>& TARGET C,int pr
         // 移动第 n 层
         C.push(A.top());
         A.pop();
-        // 将 B 上面的 n-1层移动会A
+        // 将 B 上面的 n-1层移动到 C
         Hanoi(SOURCE B,BUFFER A,TARGET C,problemSize-1);
     }
 }
