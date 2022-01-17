@@ -14,5 +14,7 @@ void shiftK(int A[],int n,int k){
     reverse(A,k);
     reverse(A,k,n - k);
     reverse(A,n);
-} // O(3n) 但是要比那个 O(1.5n) 快很多
+} 
+// O(3n) 但是要比那个 O(1.5n) 快很多
 // 因为连续访问 Cache加速
+// 需要用到swap 所以也需要 <algorithm> 算法库，其实reverse也可以调用算法库实现
