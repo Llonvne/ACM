@@ -1,4 +1,9 @@
 // CoverMissingConnerBoard Recursion Algorithm
+// T(n) = 4T(n-1) + O(1) 每一个问题都被分为四个规模减少的字问题
+// 而显然 T(1) = O(1) 
+// 不难看出 T(n) = 4^n
+// 如果棋盘边长为 N 则 T(N) = O(N^2)
+// 令棋盘面积为 M 则 T(M) = O(M)
 class CoverMissingConnerBoard{
     // 棋盘
     vector<vector<int> > _board;
@@ -38,11 +43,11 @@ class CoverMissingConnerBoard{
 
 public:
 // 初始化
-    CoverMissingConnerBoard(vector<vector<int> > & board,int dx,int dy){
+    CoverMissingConnerBoard(vector<vector<int> > & board,int x,int y,int dx,int dy){
         _board = move(board);
         _color = 0;
         int n = (int)sqrt((int)_board.size());
-        cover(n,0,0,dx,dy);
+        cover(n,x,y,dx,dy);
     }
 
     // 获得棋盘
