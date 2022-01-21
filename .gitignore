@@ -1,3 +1,8 @@
-
+// MacOS
 .DS_Store
+
+// vscode
 .vscode
+
+// C/C++
+.out
