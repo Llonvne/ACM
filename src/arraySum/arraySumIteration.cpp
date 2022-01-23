@@ -1,4 +1,15 @@
-// Array Sum Iteration 迭代版本 
+/*
+\brief: Array Sum Iteration Version 
+
+@params: int A[]; Summed Array
+@params: int n; Array size;
+
+@return: The sum of the arrays
+
+\details: This function uses an iterative method to find the sum of arrays, 
+with time complexity O(n) and space complexity O(1)
+
+*/
 int sumIteration(int A[],int n){
     int sum = 0;
     for (int i = 0; i < n; i++)
