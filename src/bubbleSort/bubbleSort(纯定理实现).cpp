@@ -1,6 +1,3 @@
-// 冒泡排序
-// 纯粹定理的版本,即如果一个序列不存在逆序元素即为有序
-// 默认实现 从小到大排序
 void bubbleSort(int A[],int n){
     bool sorted = true;
     while (!sorted){
