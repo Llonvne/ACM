@@ -29,6 +29,8 @@ allowing for a small memory footprint and ensuring fast computation through bit 
 However, BitMap uses the int parameter by default, 
 if you need a larger range of flags, 
 you can modify it yourself.
+
+STL: https://www.cplusplus.com/reference/bitset/bitset/
 */
 
 class Bitmap{
