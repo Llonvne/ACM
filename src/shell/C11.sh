@@ -33,7 +33,7 @@ alias g11="g++ -std=c++11"
 c11run(){
 
 # complie cpp file
-g11 $1
+g11 $1 && 
 
 # Determine if the input file is included and execute it correctly
 if [[ $# == 1 ]] then      
@@ -41,8 +41,9 @@ if [[ $# == 1 ]] then
 elif [[ $# == 2 ]] then 
 ./a.out < $2
 else 
-echo "Parameter is illegal.The function accepts two arguments the first for the CPP source file and the second optional argument for the input file"
-exit $#;
+echo -e "\033[31mError : Parameter is illegal!\033[0m"  
+echo ".The function accepts two arguments the first for the CPP source file and the second optional argument for the input file"
+return $#
 fi
 
 }
@@ -57,7 +58,7 @@ fi
 c11(){
 
 # using c11run function and transfer all the arguments;
-c11run $@
+c11run $@ && 
 
 # delete filename of .cpp           
 filename=${1%.*cpp} &&   
@@ -81,7 +82,7 @@ echo "\n\nC11: rename a.out to $filename Done!" &&
 c11c(){
 
 # using c11run function and transfer all the arguments;
-c11run $@ 
+c11run $@ && 
 
 # remove a.out
 rm ./a.out 
