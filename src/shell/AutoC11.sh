@@ -16,7 +16,7 @@
 alias g11="g++ -std=c++11" 
 
 __outputC11FunctionPrefix__(){
-    echo -e "\033[32mAutoC11:\c\033[0m" 
+    echo -e "\033[32mAutoC11:\c\033[0m" &&
     echo "$*"
 }
 
@@ -25,11 +25,11 @@ __outputC11FunctionPrefix__(){
 # param : commands
 # return : times of commands
 __C11RunTimeCount__() {
-  local start=$(date +%s)
-  $@
-  local exit_code=$?
-__outputC11FunctionPrefix__ "\033[32m----------------程序运行结束----------------------\033[0m" 
-__outputC11FunctionPrefix__ "\033[32m程序花费了 $(($(date +%s)-${start})) 秒. 退出代码 ${exit_code}\033[0m"
+  local start=$(date +%s) &&
+  $@ &&
+  local exit_code=$? &&
+__outputC11FunctionPrefix__ "\033[32m----------------程序运行结束----------------------\033[0m" &&
+__outputC11FunctionPrefix__ "\033[32m程序花费了 $(($(date +%s)-${start})) 秒. 退出代码 ${exit_code}\033[0m" &&
   return $exit_code
 }
 
@@ -42,12 +42,12 @@ __outputC11FunctionPrefix__ "\033[32m程序花费了 $(($(date +%s)-${start})) �
 c11run(){
 
 # complie cpp file
-__outputC11FunctionPrefix__ "\033[32m开始编译源文件!\033[0m" 
+__outputC11FunctionPrefix__ "\033[32m开始编译源文件!\033[0m" &&
 g11 $1 && 
-__outputC11FunctionPrefix__ "\033[32m源文件编译成功！\033[0m" 
+__outputC11FunctionPrefix__ "\033[32m源文件编译成功！\033[0m" &&
 
 # Determine if the input file is included and execute it correctly 
-__outputC11FunctionPrefix__ "\033[32m----------------开始运行程序----------------------\033[0m"   
+__outputC11FunctionPrefix__ "\033[32m----------------开始运行程序----------------------\033[0m" &&
 __C11RunTimeCount__ "./a.out"
 }
 
@@ -70,7 +70,7 @@ filename=${1%.*cpp} &&
 filename+=".out" &&      
 
 # tell user do what
-__outputC11FunctionPrefix__ "\033[32m输出文件：$filename\033[0m"
+__outputC11FunctionPrefix__ "\033[32m输出文件：$filename\033[0m" &&
 
 # rename a.out to $1.out
 `mv -f ./a.out "$filename"`
@@ -100,7 +100,7 @@ rm ./a.out
 c11cc(){
 
 # clean the windows first
-clear
+clear &&
 
 # run c11c 
 c11c $@
