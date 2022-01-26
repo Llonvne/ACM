@@ -42,7 +42,7 @@ elif [[ $# == 2 ]] then
 ./a.out < $2
 else 
 echo "Parameter is illegal.The function accepts two arguments the first for the CPP source file and the second optional argument for the input file"
-exit 3;
+exit $#;
 fi
 
 }
