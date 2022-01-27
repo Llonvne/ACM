@@ -30,7 +30,7 @@ __AutoC11PrintWithPrefix__ "\033[32m程序花费了 $(($(date +%s)-${start})) �
   return $exit_code
 }
 
-# Run Program and Count Time without Print
+# Run Program without Print
 __AutoC11TimeCountWithoutPrint__() {
   $@ &&
 }
