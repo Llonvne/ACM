@@ -143,3 +143,27 @@ clear &&
 # run c11cn
 c11cn $@
 }
+
+### Beta Function
+c11cto(){
+# C11n to output.txt
+c11cn $@ > output.txt
+}
+
+c11cfi(){
+# C11n from input.txt
+c11cn $@ < input.txt
+}
+
+c11cfito(){
+  #C11n from input.txt to output.txt
+  c11cn $@ < input.txt > output.txt
+}
+
+c11ctee(){
+  c11cn $@ | tee output.txt
+}
+
+c11cfitee(){
+  c11cn $@ < input.txt | tee output.txt
+}
