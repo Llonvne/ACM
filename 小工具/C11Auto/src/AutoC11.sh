@@ -34,7 +34,7 @@ __AutoC11PrintWithPrefix__ "\033[32m程序花费了 $(($(date +%s)-${start})) �
 
 # Run Program
 __AutoC11ProgramRunner__() {
-  $@ &&
+  $@ 
 }
 
 # Complie CPP source to a.out (xxx.cpp->a.out)
@@ -51,7 +51,7 @@ __AutoC11RunController__() {
   start=$(date +%s) &&
 
   # Run Program
-  __AutoC11ProgramRunner__ "a.out" &&
+  __AutoC11ProgramRunner__ "a.out" 
 
   # exit code
   exit_code=$? &&
