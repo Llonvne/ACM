@@ -18,6 +18,7 @@ namespace SALES {
         double average() const;
         explicit Sales(const double sourceQuarterSales[]);
         void display() const;
+        // 交互式输入
         static void setSales(Sales & s);
     };
 }
