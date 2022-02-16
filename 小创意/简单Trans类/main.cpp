@@ -27,20 +27,6 @@ Trans * readFile()
 
 int main()
 {
-//    SingleExchangeRate a[1] = {"RMB","Dollar",0.63,8};
-//    Trans account{a,1,"RMB"};
-//    account.saveFile();
-    Trans * account = readFile();
-    Trans & a = * account;
 
-    a.display();
-    a.convertAccountCurrency("Dollar");
-    a.convertAccountCurrency("RMB");
-    a.addNewMoneyType("QQ",0.001,1000);
-    a.convertAccountCurrency("QQ");
-    a.display();
-    a.saveFile();
-    delete account;
-    return 0;
 }
 
