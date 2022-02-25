@@ -1,6 +1,8 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <iostream>
+
 #include <utility>
 #include <algorithm>
 typedef int Rank; // 定义 秩
@@ -16,7 +18,7 @@ private:
     T * _elem; // 数据区域
 
     // 复制构造函数
-    void copyFrom(T * A, Rank lo, Rank hi);
+    void copyFrom(T const * A, Rank lo, Rank hi);
 
     // 拓展向量容量
     void expand();
@@ -59,21 +61,26 @@ public:
         delete[] _elem;
     }
     //--- 析构函数 END ---//
+
+    // 测试Print函数
+    void print() const
+    {
+        for (int i = 0; i < _size; ++i) {
+            std::cout << _elem[i] << " ";
+        }
+        std::cout << std::endl;
+    }
 };
 
 template<typename T>
-void Vector<T>::copyFrom(T * const A, Rank lo, Rank hi)
+void Vector<T>::copyFrom(const T * A, Rank lo, Rank hi)
 {
     _capacity = (hi - lo) * 2; // 开辟两倍于区间大小的内存，为什么后面讲
-    _size = 0; // 规模清0
+    _elem = new T[_capacity];
 
     // 复制元素
-    while (lo < hi) {
-        _elem[_size] = A[lo]; // 复制
-
-        // lo,size 递增
-        ++_size;
-        ++lo;
+    for (_size = 0; lo < hi; _size++, lo++) {
+        _elem[_size] = A[lo];
     }
 }
 
