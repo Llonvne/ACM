@@ -1,7 +1,13 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include <iostream>
+// Debug
+#ifdef DEBUG
+// do something
+#endif
+#ifdef DEBUG
+  #include <iostream>
+#endif
 
 #include <utility>
 #include <algorithm>
@@ -62,14 +68,10 @@ public:
     }
     //--- 析构函数 END ---//
 
-    // 测试Print函数
-    void print() const
-    {
-        for (int i = 0; i < _size; ++i) {
-            std::cout << _elem[i] << " ";
-        }
-        std::cout << std::endl;
-    }
+    #ifdef DEBUG     // 测试Print函数
+    void print() const;
+    #endif
+
 };
 
 template<typename T>
@@ -105,6 +107,17 @@ void Vector<T>::expand()
 
     delete[] oldelem; // 释放原数组内存
 }
+
+#ifdef DEBUG
+template<typename T>
+void Vector<T>::print() const
+{
+    for (int i = 0; i < _size; ++i) {
+        std::cout << _elem[i] << " ";
+    }
+    std::cout << std::endl;
+}
+#endif
 
 
 #endif //VECTOR_H

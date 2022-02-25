@@ -1,5 +1,7 @@
 #include <iostream>
+
 // 导入向量类
+#define DEBUG
 #include "Vector.h"
 
 int main()
