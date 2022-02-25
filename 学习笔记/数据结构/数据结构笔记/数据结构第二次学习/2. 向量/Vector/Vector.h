@@ -94,6 +94,13 @@ public:
     Rank find(T const & e, Rank lo, Rank hi);
     //--- 查找 END ---//
 
+    //--- 遍历 ---//
+    // 函数指针版本
+//    void traverse(void (* visit)(T &));
+    // 函数对象设计 由于是对象，内部可以包含数据，所以可以进行全局性质的修改
+    template<class VST> void traverse(VST & visit);
+    //--- 遍历 END ---//
+
     #ifdef DEBUG
     // 测试Print函数
     void print() const;
@@ -180,10 +187,10 @@ int Vector<T>::deduplicate_1()
     Rank i = 1; // 第0个一定不会重复，所以从第一个开始
     while (i < _size) {
         // 如果在前面找到了相同的元素 则
-        if (find(_elem[i],0,i) < 0){
+        if (find(_elem[i], 0, i) < 0) {
             i++;
         }
-        // 反之
+            // 反之
         else {
             remove(i);
         }
@@ -254,6 +261,14 @@ Rank Vector<T>::find(const T & e, Rank lo, Rank hi)
         }
     }
     return -1;
+}
+
+template<typename T> template<typename VST>
+void Vector<T>::traverse(VST & visit)
+{
+    for (int i = 0; i < _size; ++i) {
+        visit(_elem[i]);
+    }
 }
 
 #endif //VECTOR_H
