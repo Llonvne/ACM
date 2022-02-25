@@ -1,14 +1,16 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-// Debug
-#ifdef DEBUG
-// do something
-#endif
+//--- Debug ---//
+// 定义 DEBUG 宏变量来启用debug函数
+//--- Debug END ---//
+//--- Shrink ---//
+// 定义 SHRINK 宏变量来开启缩小容量模式
+//--- Shrink END ---//
+
 #ifdef DEBUG
   #include <iostream>
 #endif
-
 #include <utility>
 #include <algorithm>
 typedef int Rank; // 定义 秩
@@ -28,6 +30,9 @@ private:
 
     // 拓展向量容量
     void expand();
+
+    // 缩小向量容量
+    void shrink();
 protected:
 public:
     //--- 构造函数 ---//
@@ -68,10 +73,26 @@ public:
     }
     //--- 析构函数 END ---//
 
+    //--- 重载下标操作符 ---//
+    T & operator[](Rank r) const; // 用const来修饰this指针以保证不修改内部元素，以访问常量向量
+    // 通过引用既可以作为右值，也可以作为左值
+    //--- 重载下标操作符 END ---//
+
+    //--- 插入 ---//
+    // 在 r 位置插入 e 元素，通过常量引用来加快速度
+    Rank insert(Rank r, T const & e);
+    //--- 插入 END ---//
+
+    //--- 删除 ---//
+    // 区间元素删除
+    int remove(Rank lo, Rank hi);
+    // 单个元素删除
+    T remove(Rank r);
+    //--- 删除 END ---//
+
     #ifdef DEBUG     // 测试Print函数
     void print() const;
     #endif
-
 };
 
 template<typename T>
@@ -109,6 +130,7 @@ void Vector<T>::expand()
 }
 
 #ifdef DEBUG
+
 template<typename T>
 void Vector<T>::print() const
 {
@@ -117,7 +139,85 @@ void Vector<T>::print() const
     }
     std::cout << std::endl;
 }
+
 #endif
 
+template<typename T>
+T & Vector<T>::operator[](Rank r) const
+{
+    return _elem[r];
+}
+
+template<typename T>
+Rank Vector<T>::insert(Rank r, const T & e)
+{
+    // insert 属于动态操作需要考虑到容量
+    expand(); // 如果向量满了则拓展容量
+
+    // 从最后面开始不断向前 直到 r 元素
+    for (int i = _size; i > r; --i) {
+        _elem[i] = _elem[i - 1]; // 不断前移 最后一次是 i = r + 1 => _elem[r+1] = _elem[r]
+    }
+    _elem[r] = e; // 插入元素
+    ++_size; // 更新容量
+
+    return r; // 返回插入的位置
+}
+
+template<typename T>
+int Vector<T>::remove(Rank lo, Rank hi)
+{
+    if (lo == hi) { // 因为 [hi,lo) 所以相等时不包含元素 删除0个元素
+        return 0;
+    }
+
+    while (hi < _size) {
+        _elem[lo] = _elem[hi]; // 将区间后到第一个元素覆盖到区间到第一个元素，不断重复，直达尾部
+        ++lo;
+        ++hi;
+    }
+
+    _size = lo; // 更新容量
+
+    shrink(); // 有必要,缩小容量
+    return hi - lo;
+}
+
+template<typename T>
+void Vector<T>::shrink()
+{
+    #ifdef SHRINK
+    if (_capacity < DEFAULT_CAPACITY << 1) {  // 如果容量小于最小容量的两倍，不缩小
+        return;
+    }
+    if (_size << 4 > _capacity) { // size * 4 < capacity 才缩容量
+        return;
+    }
+
+    // 备份原来的数组
+    T * oldelem = _elem;
+    _capacity >>= 1; // 容量缩小一半
+    _elem = new T[_capacity >> 1]; // 重新开辟空间
+
+    // 复制元素
+    for (int i = 0; i < _size; ++i) {
+        _elem[i] = oldelem[i];
+    }
+
+    // 释放原来的空间
+    delete[] oldelem;
+    #endif
+}
+
+template<typename T>
+T Vector<T>::remove(Rank r)
+{
+    // 有必要就缩小容量
+    shrink();
+
+    T e = _elem[r]; // 备份被删除的元素
+    remove(r,r+1); // 调用区间删除函数，删除r位置的元素
+    return e; // 返回被删除的元素
+}
 
 #endif //VECTOR_H
