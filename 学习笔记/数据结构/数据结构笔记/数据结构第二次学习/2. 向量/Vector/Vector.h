@@ -1,10 +1,8 @@
-//
-// Created by 华邵钶 on 2022/2/25.
-//
-
 #ifndef VECTOR_H
 #define VECTOR_H
 
+#include <utility>
+#include <algorithm>
 typedef int Rank; // 定义 秩
 #define DEFAULT_CAPACITY (3)
 
@@ -13,12 +11,15 @@ class Vector // 向量模版类
 {
 private:
     // 下划线一方面表示内部变量，一方面与下面的接口函数做出区分
-    Rank _size; // 规模
-    int _capacity; // 容量
+    Rank _size = 0; // 规模
+    int _capacity = DEFAULT_CAPACITY; // 容量
     T * _elem; // 数据区域
 
     // 复制构造函数
     void copyFrom(T * A, Rank lo, Rank hi);
+
+    // 拓展向量容量
+    void expand();
 protected:
 public:
     //--- 构造函数 ---//
@@ -74,6 +75,28 @@ void Vector<T>::copyFrom(T * const A, Rank lo, Rank hi)
         ++_size;
         ++lo;
     }
+}
+
+template<typename T>
+void Vector<T>::expand()
+{
+    // _size < _capacity 没有满，无需拓展
+    if (_size < _capacity) {
+        return;
+    }
+
+    // 容量不得低于最小容量
+    _capacity = std::max(_capacity, DEFAULT_CAPACITY);
+    T * oldelem = _elem; // 备份原数组地址
+    _capacity <<= 1; // 容量加倍
+    _elem = new T[_capacity]; // 开辟加倍后容量的空间
+
+    // 复制元素
+    for (int i = 0; i < _size; ++i) {
+        _elem[i] = oldelem[i]; // 将原数组的元素复制到新开辟的数组
+    }
+
+    delete[] oldelem; // 释放原数组内存
 }
 
 
