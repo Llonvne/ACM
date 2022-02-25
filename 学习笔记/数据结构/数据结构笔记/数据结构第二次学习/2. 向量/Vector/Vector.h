@@ -90,8 +90,15 @@ public:
     T remove(Rank r);
     //--- 删除 END ---//
 
-    #ifdef DEBUG     // 测试Print函数
+    //--- 查找 ---//
+    Rank find(T const & e, Rank lo, Rank hi);
+    //--- 查找 END ---//
+
+    #ifdef DEBUG
+    // 测试Print函数
     void print() const;
+    // 繁琐错误的 deduplicate
+    int deduplicate_1();
     #endif
 };
 
@@ -129,6 +136,32 @@ void Vector<T>::expand()
     delete[] oldelem; // 释放原数组内存
 }
 
+template<typename T>
+void Vector<T>::shrink()
+{
+    #ifdef SHRINK
+    if (_capacity < DEFAULT_CAPACITY << 1) {  // 如果容量小于最小容量的两倍，不缩小
+        return;
+    }
+    if (_size << 4 > _capacity) { // size * 4 < capacity 才缩容量
+        return;
+    }
+
+    // 备份原来的数组
+    T * oldelem = _elem;
+    _capacity >>= 1; // 容量缩小一半
+    _elem = new T[_capacity >> 1]; // 重新开辟空间
+
+    // 复制元素
+    for (int i = 0; i < _size; ++i) {
+        _elem[i] = oldelem[i];
+    }
+
+    // 释放原来的空间
+    delete[] oldelem;
+    #endif
+}
+
 #ifdef DEBUG
 
 template<typename T>
@@ -138,6 +171,24 @@ void Vector<T>::print() const
         std::cout << _elem[i] << " ";
     }
     std::cout << std::endl;
+}
+
+template<typename T>
+int Vector<T>::deduplicate_1()
+{
+    int oldsize = _size;
+    Rank i = 1; // 第0个一定不会重复，所以从第一个开始
+    while (i < _size) {
+        // 如果在前面找到了相同的元素 则
+        if (find(_elem[i],0,i) < 0){
+            i++;
+        }
+        // 反之
+        else {
+            remove(i);
+        }
+    }
+    return oldsize - _size; // 删除的元素总数
 }
 
 #endif
@@ -184,40 +235,25 @@ int Vector<T>::remove(Rank lo, Rank hi)
 }
 
 template<typename T>
-void Vector<T>::shrink()
-{
-    #ifdef SHRINK
-    if (_capacity < DEFAULT_CAPACITY << 1) {  // 如果容量小于最小容量的两倍，不缩小
-        return;
-    }
-    if (_size << 4 > _capacity) { // size * 4 < capacity 才缩容量
-        return;
-    }
-
-    // 备份原来的数组
-    T * oldelem = _elem;
-    _capacity >>= 1; // 容量缩小一半
-    _elem = new T[_capacity >> 1]; // 重新开辟空间
-
-    // 复制元素
-    for (int i = 0; i < _size; ++i) {
-        _elem[i] = oldelem[i];
-    }
-
-    // 释放原来的空间
-    delete[] oldelem;
-    #endif
-}
-
-template<typename T>
 T Vector<T>::remove(Rank r)
 {
     // 有必要就缩小容量
     shrink();
 
     T e = _elem[r]; // 备份被删除的元素
-    remove(r,r+1); // 调用区间删除函数，删除r位置的元素
+    remove(r, r + 1); // 调用区间删除函数，删除r位置的元素
     return e; // 返回被删除的元素
+}
+
+template<typename T>
+Rank Vector<T>::find(const T & e, Rank lo, Rank hi)
+{
+    while (lo < hi) {
+        if (e == _elem[--hi]) { // 命中直接返回
+            return hi;
+        }
+    }
+    return -1;
 }
 
 #endif //VECTOR_H

@@ -45,4 +45,15 @@ int main()
     // 区间删除
     e.remove(0,2);
     e.print();
+
+    // 查找
+    test_expand.print();
+    std::cout << test_expand.find(99,0,3) << std::endl;
+
+    // 去重复
+    int de_array[] = {1,1,1,2,2,2,3,3};
+    Vector<int> de(de_array,0,7);
+    de.print();
+    de.deduplicate_1();
+    de.print();
 }
