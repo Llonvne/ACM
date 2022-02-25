@@ -91,23 +91,91 @@ public:
     //--- 删除 END ---//
 
     //--- 查找 ---//
-    Rank find(T const & e, Rank lo, Rank hi);
+    Rank find(T const & e, Rank lo, Rank hi) const;
     //--- 查找 END ---//
 
     //--- 遍历 ---//
-    // 函数指针版本
-//    void traverse(void (* visit)(T &));
     // 函数对象设计 由于是对象，内部可以包含数据，所以可以进行全局性质的修改
     template<class VST> void traverse(VST & visit);
     //--- 遍历 END ---//
 
+    //--- 是否有序判断 ---//
+    // 逆序对统计函数
+    int disordered() const;
+    // 有序判断函数
+    bool sorted() const;
+    //--- 是否有序判断 END ---//
+
+    //--- 去重复函数 ---//
+    // 有序向量去重复函数
+    int uniquify();
+    //--- 去重复函数 END ---//
+
+    //--- Debug函数声明 ---//
     #ifdef DEBUG
     // 测试Print函数
     void print() const;
     // 繁琐错误的 deduplicate
     int deduplicate_1();
+    // 低效的有序向量去重复
+    int uniquify_v1();
     #endif
+    //--- Debug函数声明 END ---//
 };
+
+//--- Debug 函数实现 ---//
+#ifdef DEBUG
+
+template<typename T>
+void Vector<T>::print() const
+{
+    for (int i = 0; i < _size; ++i) {
+        std::cout << _elem[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+template<typename T>
+int Vector<T>::deduplicate_1()
+{
+    int oldsize = _size;
+    Rank i = 1; // 第0个一定不会重复，所以从第一个开始
+    while (i < _size) {
+        // 如果在前面找到了相同的元素 则
+        if (find(_elem[i], 0, i) < 0) {
+            i++;
+        }
+            // 反之
+        else {
+            remove(i);
+        }
+    }
+    return oldsize - _size; // 删除的元素总数
+}
+
+template<typename T>
+int Vector<T>::uniquify_v1()
+{
+    // 非有序向量，退出
+    if (!sorted()) {
+        return 0;
+    }
+    int oldsize = _size;
+    int i = 0; // 从第0个元素开始
+    while (i < _size - 1) {
+        if (_elem[i] == _elem[i + 1]) // 如果与后面的元素相等
+        {
+            remove(i + 1);// 删除后面第元素
+        }// 否则
+        else {
+            i++; // 移动到后面一个元素
+        }
+    }
+    return oldsize - _size;
+}
+
+#endif
+//--- Debug 函数实现 END ---//
 
 template<typename T>
 void Vector<T>::copyFrom(const T * A, Rank lo, Rank hi)
@@ -169,37 +237,6 @@ void Vector<T>::shrink()
     #endif
 }
 
-#ifdef DEBUG
-
-template<typename T>
-void Vector<T>::print() const
-{
-    for (int i = 0; i < _size; ++i) {
-        std::cout << _elem[i] << " ";
-    }
-    std::cout << std::endl;
-}
-
-template<typename T>
-int Vector<T>::deduplicate_1()
-{
-    int oldsize = _size;
-    Rank i = 1; // 第0个一定不会重复，所以从第一个开始
-    while (i < _size) {
-        // 如果在前面找到了相同的元素 则
-        if (find(_elem[i], 0, i) < 0) {
-            i++;
-        }
-            // 反之
-        else {
-            remove(i);
-        }
-    }
-    return oldsize - _size; // 删除的元素总数
-}
-
-#endif
-
 template<typename T>
 T & Vector<T>::operator[](Rank r) const
 {
@@ -253,7 +290,7 @@ T Vector<T>::remove(Rank r)
 }
 
 template<typename T>
-Rank Vector<T>::find(const T & e, Rank lo, Rank hi)
+Rank Vector<T>::find(const T & e, Rank lo, Rank hi) const
 {
     while (lo < hi) {
         if (e == _elem[--hi]) { // 命中直接返回
@@ -269,6 +306,50 @@ void Vector<T>::traverse(VST & visit)
     for (int i = 0; i < _size; ++i) {
         visit(_elem[i]);
     }
+}
+
+template<typename T>
+int Vector<T>::disordered() const
+{
+    int n = 0; // 逆序对数量统计
+    for (int i = 1; i < _size; ++i) {
+        if (_elem[i - 1] > _elem[i]) // 如果前面一个后面一个 就 ++
+        {
+            ++n;
+        }
+    }
+    return n;
+}
+
+template<typename T>
+bool Vector<T>::sorted() const
+{
+    for (int i = 1; i < _size; ++i) {
+        if (_elem[i - 1] > _elem[i]) // 一旦前面一个大于后面一个
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+template<typename T>
+int Vector<T>::uniquify()
+{
+    // 无序向量 退出
+    if (!sorted() || _size <= 1){
+        return 0;
+    }
+    Rank i = 0,j = 0;
+    while (++j < _size ){ // 循环所有元素
+        if (_elem[i] != _elem[j]){ // 如果雷同
+            _elem[++i] = _elem[j]; // 将j移动到 i+1，同时i向后移动
+        }
+    }
+    // 此时i是最后一个不重复元素的下标
+    _size = ++i; // 规模的最后一个元素的下标+1
+    shrink(); // 如果有必要就减少容量
+    return j - i ; // 此时 j 就是原来数组的大小 i == _size 是现在数组的大小
 }
 
 #endif //VECTOR_H
