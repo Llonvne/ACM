@@ -2,10 +2,11 @@
 // Created by 华邵钶 on 2022/2/27.
 //
 
-#ifndef VECTOR_SEARCH_H
-#define VECTOR_SEARCH_H
-#include "../../1.绪论/src/fibnacci/fibnacciClassSmall.cpp"
+#ifndef VECTOR_FIB_BINARY_SEARCH_H
+#define VECTOR_FIB_BINARY_SEARCH_H
+#include "../../../1.绪论/src/fibnacci/fibnacciClassSmall.cpp"
 using Fib = Fibnacci;
+#include "../Vector.h"
 
 template<typename T>
 Rank fibSearch(T * A, T const & e, Rank lo, Rank hi)
@@ -56,4 +57,4 @@ Rank binSearch_2(T * A, T const & e, Rank lo, Rank hi)
     return e == A[lo] ? lo : -1;
 }
 
-#endif //VECTOR_SEARCH_H
+#endif //VECTOR_FIB_BINARY_SEARCH_H

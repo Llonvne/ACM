@@ -6,7 +6,7 @@
 #define VECTOR_DYNAMIC_CAPACITY_ADJUSTMENT_H
 #pragma once
 #include <algorithm>
-#include "Vector.h"
+#include "../Vector.h"
 
 template<typename T>
 void Vector<T>::expand()

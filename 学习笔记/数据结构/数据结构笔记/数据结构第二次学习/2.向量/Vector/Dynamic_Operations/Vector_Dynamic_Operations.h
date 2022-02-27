@@ -5,7 +5,7 @@
 #ifndef VECTOR_DYNAMIC_OPERATIONS_H
 #define VECTOR_DYNAMIC_OPERATIONS_H
 #pragma once
-#include "Vector.h"
+#include "../Vector.h"
 template<typename T>
 Rank Vector<T>::insert(Rank r, const T & e)
 {

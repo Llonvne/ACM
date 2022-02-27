@@ -6,14 +6,16 @@
 #define VECTOR_INCLUDES_H
 #pragma once
 
-#include "Vector_Dynamic_Capacity_Adjustment.h"
+#include "Dynamic_Operations/Vector_Dynamic_Capacity_Adjustment.h"
 
-#include "Vector_Constructors_Destructor.h"
+#include "Dynamic_Operations/Vector_Constructors_Destructor.h"
 
-#include "Vector_Debug_Only.h"
+#include "For_Debug/Vector_Debug_Only.h"
 
-#include "Vector_Static_Operation.h"
+#include "Static_Operations/Vector_Static_Operations.h"
 
-#include "Vector_Dynamic_Operations.h"
+#include "Dynamic_Operations/Vector_Dynamic_Operations.h"
+
+#include "Search/Vector_Search_Interface.h"
 
 #endif //VECTOR_INCLUDES_H

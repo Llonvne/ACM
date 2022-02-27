@@ -5,8 +5,8 @@
 #ifndef VECTOR_DEBUG_ONLY_H
 #define VECTOR_DEBUG_ONLY_H
 #pragma once
-//--- Debug 函数实现 ---//
-#include "Vector.h"
+//--- For_Debug 函数实现 ---//
+#include "../Vector.h"
 #ifdef DEBUG
 #include <iostream>
 
@@ -75,5 +75,5 @@ Rank Vector<T>::search_v1(const T & e, Rank lo, Rank hi) const
 }
 
 #endif
-//--- Debug 函数实现 END ---//
+//--- For_Debug 函数实现 END ---//
 #endif //VECTOR_DEBUG_ONLY_H

@@ -2,31 +2,11 @@
 // Created by 华邵钶 on 2022/2/27.
 //
 
-#ifndef VECTOR_STATIC_OPERATION_H
-#define VECTOR_STATIC_OPERATION_H
+#ifndef VECTOR_STATIC_OPERATIONS_H
+#define VECTOR_STATIC_OPERATIONS_H
 #pragma once
-#include "Vector.h"
-#include "SimpleError.h"
-#include "Vector_Search.h"
-template<typename T>
-Rank Vector<T>::search(const T & e, Rank lo, Rank hi, Search_Mode mode) const
-{
-    if (mode == Search_Mode::BinarySearch){
-        return binSearch(_elem,e,lo,hi);
-    }
-    else if (mode == Search_Mode::FibonacciSearch){
-        return fibSearch(_elem,e,lo,hi);
-    }
-    else if (mode == Search_Mode::BinarySearch_2){
-        return binSearch_2(_elem, e, lo, hi);
-    }
-}
-
-template<typename T>
-Rank Vector<T>::search(const T & e, Search_Mode mode) const
-{
-    return search(e, 0, _size, mode);
-}
+#include "../Vector.h"
+#include "../Error/SimpleError.h"
 
 template<typename T>
 int Vector<T>::disordered() const
@@ -88,4 +68,4 @@ T & Vector<T>::at(Rank r) const
     }
 }
 
-#endif //VECTOR_STATIC_OPERATION_H
+#endif //VECTOR_STATIC_OPERATIONS_H

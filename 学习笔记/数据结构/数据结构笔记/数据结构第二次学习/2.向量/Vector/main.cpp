@@ -82,6 +82,8 @@ int main()
     std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch) << std::endl;
     // BinarySearch 2
     std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch_2) << std::endl;
+    // InterpolationSearch
+    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::InterpolationSearch) << std::endl;
     // at 函数
     sorted_V2.print();
     std::cout << sorted_V2.at(0) << std::endl;

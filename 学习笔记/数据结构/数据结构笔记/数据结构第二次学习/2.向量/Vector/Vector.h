@@ -76,7 +76,7 @@ public:
     //--- 有序向量查找 ---//
     enum class Search_Mode : unsigned int
     {
-        BinarySearch, FibonacciSearch,BinarySearch_2
+        BinarySearch, FibonacciSearch,BinarySearch_2,InterpolationSearch
     };
     Rank search(const T & e, Rank lo, Rank hi, Search_Mode mode = Search_Mode::BinarySearch) const;
     // 全局搜索
