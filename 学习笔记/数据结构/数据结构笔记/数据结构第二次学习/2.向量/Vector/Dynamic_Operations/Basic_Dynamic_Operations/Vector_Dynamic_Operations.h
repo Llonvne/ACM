@@ -5,7 +5,8 @@
 #ifndef VECTOR_DYNAMIC_OPERATIONS_H
 #define VECTOR_DYNAMIC_OPERATIONS_H
 #pragma once
-#include "../Vector.h"
+#include "../../Vector.h"
+
 template<typename T>
 Rank Vector<T>::insert(Rank r, const T & e)
 {
@@ -20,6 +21,18 @@ Rank Vector<T>::insert(Rank r, const T & e)
     ++_size; // 更新容量
 
     return r; // 返回插入的位置
+}
+
+template<typename T>
+Rank Vector<T>::push_back(const T & e)
+{
+    insert(_size, e);
+}
+
+template<typename T>
+Rank Vector<T>::insert_InOrder(const T & e)
+{
+    insert(this->search(e) + 1,e);
 }
 
 template<typename T>

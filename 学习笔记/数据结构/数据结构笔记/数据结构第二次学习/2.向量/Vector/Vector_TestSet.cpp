@@ -8,7 +8,6 @@ int main()
 {
     // 向量
     Vector<int> a;
-
     // 从数组复制
     int b[] = {1, 2, 3, 4, 5};
     Vector<int> c(b, 0, 4);
@@ -96,10 +95,34 @@ int main()
 
     int unsort[5] = {5,4,3,2,1};
     Vector<int> unsortV(unsort,0,5);
+    Vector<int> unsortV2(unsortV);
     unsortV.print();
     unsortV.setSortMode(Sort_Mode::BubbleSort);
     unsortV.sort();
     unsortV.print();
+    //使用 getSortedCopy 对无序向量对副本进行整理并返回
+    Vector<int> V2copy = unsortV2.getSortedCopy();
+    unsortV2.print();
+    V2copy.print();
+
+    // push_back
+    Vector<int> push;
+    push.push_back(1);
+    push.push_back(5);
+    push.print();
+
+    // insert_InOrder
+    Vector<int> insert_In;
+    insert_In.insert_InOrder(1);
+    insert_In.insert_InOrder(3);
+    insert_In.insert_InOrder(2);
+    insert_In.insert_InOrder(-99);
+    insert_In.print();
+
+    unsortV2.print();
+    unsortV2.setSortMode(Sort_Mode::MergeSort);
+    unsortV2.getSortedCopy().print();
+    
 
 
     std::cout << "If you can see this means test pass!";

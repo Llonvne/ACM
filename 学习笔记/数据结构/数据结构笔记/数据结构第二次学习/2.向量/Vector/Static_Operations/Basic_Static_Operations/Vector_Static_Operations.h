@@ -5,9 +5,8 @@
 #ifndef VECTOR_STATIC_OPERATIONS_H
 #define VECTOR_STATIC_OPERATIONS_H
 #pragma once
-#include "../Vector.h"
-#include "../Error/SimpleError.h"
-#include "./Search/Vector_Search_Interface.h"
+#include "../../Vector.h"
+#include "../../Error/SimpleError.h"
 
 template<typename T>
 int Vector<T>::disordered() const
@@ -61,12 +60,24 @@ template<typename T>
 T & Vector<T>::at(Rank r) const
 {
     // 与 STL at相同提供边界检查，但是内部还是由 [] 实现
-    if (r < 0 || r >= _size){
+    if (r < 0 || r >= _size) {
         error_message("Rank out of range");
     }
     else {
         return this->operator[](r);
     }
+}
+
+template<typename T>
+int Vector<T>::size() const
+{
+    return _size;
+}
+
+template<typename T>
+bool Vector<T>::empty() const
+{
+    return _size == 0;
 }
 
 #endif //VECTOR_STATIC_OPERATIONS_H

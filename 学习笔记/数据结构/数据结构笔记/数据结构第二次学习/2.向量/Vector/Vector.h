@@ -1,6 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #pragma once
+// 导入定义
 #include "Vector_Definitions.h"
 // 向量 Vector 模版类
 template<typename T>
@@ -44,9 +45,15 @@ public:
     // 提供与 STL Vector 容器一样提供边界检查的 at 访问函数
     T & at(Rank r) const;
 
+    // 长度和空向量函数
+    int size() const;
+    bool empty() const;
+
     //--- 插入 ---//
     // 在 r 位置插入 e 元素，通过常量引用来加快速度
     Rank insert(Rank r, T const & e);
+    Rank insert_InOrder(T const & e);
+    Rank push_back(T const & e);
 
     //--- 删除 ---//
     // 区间元素删除
@@ -54,7 +61,7 @@ public:
     // 单个元素删除
     T remove(Rank r);
 
-    //--- 查找 ---//
+    //--- 无序查找 ---//
     // 区间查找
     Rank find(T const & e, Rank lo, Rank hi) const;
     // 全局查找
@@ -75,7 +82,8 @@ public:
     // 有序向量去重复函数
     int uniquify();
 
-    //--- 有序向量查找 ---//
+    //--- 搜索算法---//
+    // 区间搜索
     Rank search(const T & e, Rank lo, Rank hi) const;
     // 全局搜索
     Rank search(const T & e) const;
@@ -86,6 +94,7 @@ public:
     void sort(Rank lo,Rank hi);
     void sort();
     void setSortMode(Sort_Mode mode);
+    Vector<T> getSortedCopy() const;
 
     //--- Debug函数声明 ---//
     #ifdef DEBUG
@@ -99,7 +108,7 @@ public:
     Rank search_v1(const T & e, Rank lo, Rank hi) const;
     #endif
 };
-
+// 导入函数实现
 #include "Vector_Includes.h"
 
 #endif //VECTOR_H
