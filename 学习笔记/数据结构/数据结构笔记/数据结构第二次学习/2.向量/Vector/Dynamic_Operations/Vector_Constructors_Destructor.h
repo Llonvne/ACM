@@ -13,28 +13,24 @@ Vector<T>::Vector(int c)
     _capacity = c;
     _elem = new T[_capacity];
     _size = 0;
-    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const T * A, Rank lo, Rank hi)
 {
     copyFrom(A, lo, hi);
-    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V, Rank lo, Rank hi)
 {
     copyFrom(V._elem, lo, hi);
-    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V)
 {
     copyFrom(V._elem, 0, V._size);
-    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>

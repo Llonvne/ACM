@@ -4,7 +4,7 @@
 
 #ifndef VECTOR_SEARCH_INTERFACE_H
 #define VECTOR_SEARCH_INTERFACE_H
-#include "../Vector.h"
+#include "../../Vector.h"
 #include "Vector_Fib_Binary_Search.h"
 #include "Vector_Interpolation_Search.h"
 

@@ -7,6 +7,7 @@
 #pragma once
 #include "../Vector.h"
 #include "../Error/SimpleError.h"
+#include "./Search/Vector_Search_Interface.h"
 
 template<typename T>
 int Vector<T>::disordered() const

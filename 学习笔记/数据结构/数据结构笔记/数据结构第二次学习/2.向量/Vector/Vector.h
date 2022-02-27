@@ -14,7 +14,9 @@ private:
     // 数据区域
     T * _elem;
     // 默认查找算法
-    Search_Mode defaultSearchMode;
+    Search_Mode defaultSearchMode = DEFAULT_SEARCH_MODE;
+    // 默认排序算法
+    Sort_Mode defaultSortMode = DEFAULT_SORT_MODE;
 
     // 复制构造函数
     void copyFrom(T const * A, Rank lo, Rank hi);
@@ -79,6 +81,11 @@ public:
     Rank search(const T & e) const;
     // 设置 defaultSearchMode
     void setDefaultSearchMode(Search_Mode mode);
+
+    //--- 排序算法 ---//
+    void sort(Rank lo,Rank hi);
+    void sort();
+    void setSortMode(Sort_Mode mode);
 
     //--- Debug函数声明 ---//
     #ifdef DEBUG

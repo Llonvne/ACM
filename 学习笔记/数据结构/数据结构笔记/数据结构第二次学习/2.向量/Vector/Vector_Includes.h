@@ -16,6 +16,6 @@
 
 #include "Dynamic_Operations/Vector_Dynamic_Operations.h"
 
-#include "Search/Vector_Search_Interface.h"
+#include "Dynamic_Operations/Sort/Vector_Sort_Interfaces.h"
 
 #endif //VECTOR_INCLUDES_H

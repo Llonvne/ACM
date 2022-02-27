@@ -4,9 +4,9 @@
 
 #ifndef VECTOR_FIB_BINARY_SEARCH_H
 #define VECTOR_FIB_BINARY_SEARCH_H
-#include "../../../1.绪论/src/fibnacci/fibnacciClassSmall.cpp"
+#include "../../../../1.绪论/src/fibnacci/fibnacciClassSmall.cpp"
 using Fib = Fibnacci;
-#include "../Vector_Definitions.h"
+#include "../../Vector_Definitions.h"
 
 template<typename T>
 Rank fibSearch(T * A, T const & e, Rank lo, Rank hi)

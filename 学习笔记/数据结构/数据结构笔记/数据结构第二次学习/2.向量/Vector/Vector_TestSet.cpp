@@ -94,5 +94,12 @@ int main()
     // 以下会导致越界
     //std::cout << sorted_V2.at(-1) << std::endl;
 
+    int unsort[5] = {5,4,3,2,1};
+    Vector<int> unsortV(unsort,0,5);
+    unsortV.print();
+    unsortV.sort();
+    unsortV.print();
+
+
     std::cout << "If you can see this means test pass!";
 }
