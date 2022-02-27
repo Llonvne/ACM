@@ -13,24 +13,28 @@ Vector<T>::Vector(int c)
     _capacity = c;
     _elem = new T[_capacity];
     _size = 0;
+    defaultSearchMode = Search_Mode::BinarySearch;
 }
 
 template<typename T>
 Vector<T>::Vector(const T * A, Rank lo, Rank hi)
 {
     copyFrom(A, lo, hi);
+    defaultSearchMode = Search_Mode::BinarySearch;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V, Rank lo, Rank hi)
 {
     copyFrom(V._elem, lo, hi);
+    defaultSearchMode = Search_Mode::BinarySearch;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V)
 {
     copyFrom(V._elem, 0, V._size);
+    defaultSearchMode = Search_Mode::BinarySearch;
 }
 
 template<typename T>

@@ -75,19 +75,24 @@ int main()
 
     // 查找原理算法
     std::cout << sorted_V2.search_v1(3,0,8) << std::endl;
-
     // FIBONACCI 查找
-    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::FibonacciSearch) << std::endl;
+    sorted_V2.setDefaultSearchMode(Search_Mode::FibonacciSearch);
+    std::cout << sorted_V2.search(3) << std::endl;
     // 调用默认Bin查找 或者显式调用bin查找
-    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch) << std::endl;
+    sorted_V2.setDefaultSearchMode(Search_Mode::BinarySearch);
+    std::cout << sorted_V2.search(3) << std::endl;
     // BinarySearch 2
-    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch_2) << std::endl;
+    sorted_V2.setDefaultSearchMode(Search_Mode::BinarySearch_2);
+    std::cout << sorted_V2.search(3) << std::endl;
     // InterpolationSearch
-    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::InterpolationSearch) << std::endl;
+    sorted_V2.setDefaultSearchMode(Search_Mode::InterpolationSearch);
+    std::cout << sorted_V2.search(3) << std::endl;
+
     // at 函数
     sorted_V2.print();
     std::cout << sorted_V2.at(0) << std::endl;
     // 以下会导致越界
     //std::cout << sorted_V2.at(-1) << std::endl;
+
     std::cout << "If you can see this means test pass!";
 }

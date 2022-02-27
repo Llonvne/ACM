@@ -4,6 +4,10 @@
 
 typedef int Rank; // 定义 秩
 #define DEFAULT_CAPACITY (3)
+enum class Search_Mode : unsigned int
+{
+    BinarySearch, FibonacciSearch,BinarySearch_2,InterpolationSearch
+};
 // 向量 Vector 模版类
 template<typename T>
 class Vector
@@ -15,6 +19,8 @@ private:
     int _capacity = DEFAULT_CAPACITY;
     // 数据区域
     T * _elem;
+    // 默认查找算法
+    Search_Mode defaultSearchMode;
 
     // 复制构造函数
     void copyFrom(T const * A, Rank lo, Rank hi);
@@ -74,13 +80,11 @@ public:
     int uniquify();
 
     //--- 有序向量查找 ---//
-    enum class Search_Mode : unsigned int
-    {
-        BinarySearch, FibonacciSearch,BinarySearch_2,InterpolationSearch
-    };
-    Rank search(const T & e, Rank lo, Rank hi, Search_Mode mode = Search_Mode::BinarySearch) const;
+    Rank search(const T & e, Rank lo, Rank hi) const;
     // 全局搜索
-    Rank search(const T & e, Search_Mode mode = Search_Mode::BinarySearch) const;
+    Rank search(const T & e) const;
+    // 设置 defaultSearchMode
+    void setDefaultSearchMode(Search_Mode mode);
 
     //--- Debug函数声明 ---//
     #ifdef DEBUG
