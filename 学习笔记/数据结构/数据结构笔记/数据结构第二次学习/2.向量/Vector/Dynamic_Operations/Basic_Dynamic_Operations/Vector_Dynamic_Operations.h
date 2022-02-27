@@ -88,4 +88,11 @@ int Vector<T>::uniquify()
     return j - i; // 此时 j 就是原来数组的大小 i == _size 是现在数组的大小
 }
 
+template<typename T>
+Vector<T> & Vector<T>::operator=(const Vector<T> & V)
+{
+    copyFrom(V._elem);
+    return *this;
+}
+
 #endif //VECTOR_DYNAMIC_OPERATIONS_H

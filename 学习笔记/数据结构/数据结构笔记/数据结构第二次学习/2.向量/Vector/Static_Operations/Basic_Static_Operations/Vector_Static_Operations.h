@@ -80,4 +80,18 @@ bool Vector<T>::empty() const
     return _size == 0;
 }
 
+template<typename T>
+bool Vector<T>::operator==(const Vector<T> & V) const
+{
+    if (this->size() != V.size()){
+        return false;
+    }
+    for (int i = 0; i < _size; ++i) {
+        if (_elem[i] != V[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 #endif //VECTOR_STATIC_OPERATIONS_H

@@ -35,6 +35,10 @@ public:
     Vector(Vector<T> const & V, Rank lo, Rank hi);
     // 复制向量整体构造函数
     Vector(Vector<T> const & V);
+    // 赋值运算符
+    Vector<T> & operator=(const Vector<T> & V);
+    // 判等运算符
+    bool operator==(const Vector<T> & V) const;
 
     //--- 析构函数 ---//
     // 释放 new 开辟的 _elem 的空间

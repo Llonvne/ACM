@@ -119,10 +119,28 @@ int main()
     insert_In.insert_InOrder(-99);
     insert_In.print();
 
+    // MergeSort
     unsortV2.print();
-    unsortV2.setSortMode(Sort_Mode::MergeSort);
-    unsortV2.getSortedCopy().print();
-    
+    Vector<int> uV3(unsortV2);
+    uV3.setSortMode(Sort_Mode::MergeSort);
+    uV3.print();
+    uV3.sort();
+    uV3.print();
+
+    // =
+    Vector<int> V1(unsort,0,5);
+    Vector<int> V2 = V1;
+    V1.print();
+    V2.print();
+    V2.push_back(6);
+    V1.print();
+    V2.print();
+
+    // ==
+    std::cout << (V1 == V2) << std::endl;
+    std::cout << (V1 == Vector<int>(unsort,0,5)) << std::endl;
+
+
 
 
     std::cout << "If you can see this means test pass!";

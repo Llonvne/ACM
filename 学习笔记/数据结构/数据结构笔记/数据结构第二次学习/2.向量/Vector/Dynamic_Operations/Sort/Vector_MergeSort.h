@@ -8,33 +8,23 @@
 
 template<typename T> void merge(T * A, Rank lo, Rank mi, Rank hi)
 {
-    Vector<int> result;
-    T * l = A + lo;
-    int lsize = mi - lo;
-    T * r = A + mi;
-    int rsize = hi - mi;
-    while (lsize > 0 || rsize > 0) {
-        if (lsize > 0 && rsize == 0) {
-            result.push_back(*l);
-            l++;
-            lsize--;
+    T * a = A + lo;
+    int lb = mi - lo;
+    T * b = new T[lb];
+    for (Rank i = 0; i < lb;++i){
+        b[i] = a[i];
+    };
+    int lc = hi - mi;
+    T * c = A + mi;
+    for (Rank i = 0, j = 0, k = 0; (j < lb) || (k < lc);) {
+        if ((j < lb) && (lc <= k || (b[j] <= c[k]))) {
+            a[i++] = b[j++];
         }
-        else if (rsize > 0 && lsize == 0) {
-            result.push_back(*r);
-            r++;
-            rsize--;
-        }
-        else if (*l > *r) {
-            result.push_back(*r);
-            r++;
-            rsize--;
-        }
-        else {
-            result.push_back(*l);
-            l++;
-            lsize--;
+        if ((k < lc) && (lb <= j || (c[k] < b[j]))) {
+            a[i++] = c[k++];
         }
     }
+    delete[] b;
 }
 
 template<typename T>

@@ -21,7 +21,7 @@ void Vector<T>::sort(Rank lo, Rank hi)
         bubbleSort<T>(_elem, lo, hi);
     }
     else if (defaultSortMode == Sort_Mode::MergeSort) {
-        mergeSort(_elem, lo, hi);
+        mergeSort<T>(_elem, lo, hi);
     }
 }
 
