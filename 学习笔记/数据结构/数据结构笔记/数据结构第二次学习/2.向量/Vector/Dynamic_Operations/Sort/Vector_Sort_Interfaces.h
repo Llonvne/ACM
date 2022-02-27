@@ -16,7 +16,9 @@ void Vector<T>::setSortMode(Sort_Mode mode)
 template<typename T>
 void Vector<T>::sort(Rank lo, Rank hi)
 {
-    bubbleSort<T>(_elem, lo, hi);
+    if (defaultSortMode == Sort_Mode::BubbleSort){
+        bubbleSort<T>(_elem, lo, hi);
+    }
 }
 
 template<typename T>

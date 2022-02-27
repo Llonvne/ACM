@@ -80,7 +80,7 @@ public:
     // 全局搜索
     Rank search(const T & e) const;
     // 设置 defaultSearchMode
-    void setDefaultSearchMode(Search_Mode mode);
+    void setSearchMode(Search_Mode mode);
 
     //--- 排序算法 ---//
     void sort(Rank lo,Rank hi);

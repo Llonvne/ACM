@@ -9,7 +9,7 @@
 #include "Vector_Interpolation_Search.h"
 
 template<typename T>
-void Vector<T>::setDefaultSearchMode(Search_Mode mode)
+void Vector<T>::setSearchMode(Search_Mode mode)
 {
     defaultSearchMode = mode;
 }

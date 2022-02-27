@@ -76,16 +76,16 @@ int main()
     // 查找原理算法
     std::cout << sorted_V2.search_v1(3,0,8) << std::endl;
     // FIBONACCI 查找
-    sorted_V2.setDefaultSearchMode(Search_Mode::FibonacciSearch);
+    sorted_V2.setSearchMode(Search_Mode::FibonacciSearch);
     std::cout << sorted_V2.search(3) << std::endl;
     // 调用默认Bin查找 或者显式调用bin查找
-    sorted_V2.setDefaultSearchMode(Search_Mode::BinarySearch);
+    sorted_V2.setSearchMode(Search_Mode::BinarySearch);
     std::cout << sorted_V2.search(3) << std::endl;
     // BinarySearch 2
-    sorted_V2.setDefaultSearchMode(Search_Mode::BinarySearch_2);
+    sorted_V2.setSearchMode(Search_Mode::BinarySearch_2);
     std::cout << sorted_V2.search(3) << std::endl;
     // InterpolationSearch
-    sorted_V2.setDefaultSearchMode(Search_Mode::InterpolationSearch);
+    sorted_V2.setSearchMode(Search_Mode::InterpolationSearch);
     std::cout << sorted_V2.search(3) << std::endl;
 
     // at 函数
@@ -97,6 +97,7 @@ int main()
     int unsort[5] = {5,4,3,2,1};
     Vector<int> unsortV(unsort,0,5);
     unsortV.print();
+    unsortV.setSortMode(Sort_Mode::BubbleSort);
     unsortV.sort();
     unsortV.print();
 
