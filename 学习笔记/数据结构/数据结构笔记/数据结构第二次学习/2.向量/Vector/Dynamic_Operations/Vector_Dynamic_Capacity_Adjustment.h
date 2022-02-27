@@ -12,14 +12,14 @@ template<typename T>
 void Vector<T>::expand()
 {
     // _size < _capacity 没有满，无需拓展
-    if (_size < _capacity) {
+    if (_size * CAPACITY_EXPAND_LIMIT < _capacity) {
         return;
     }
 
     // 容量不得低于最小容量
     _capacity = std::max(_capacity, DEFAULT_CAPACITY);
     T * oldelem = _elem; // 备份原数组地址
-    _capacity <<= 1; // 容量加倍
+    _capacity *= CAPACITY_MULTIPLIER_EXPAND; // 容量加倍
     _elem = new T[_capacity]; // 开辟加倍后容量的空间
 
     // 复制元素
@@ -37,14 +37,14 @@ void Vector<T>::shrink()
     if (_capacity < DEFAULT_CAPACITY << 1) {  // 如果容量小于最小容量的两倍，不缩小
         return;
     }
-    if (_size << 4 > _capacity) { // size * 4 < capacity 才缩容量
+    if (_size > _capacity * CAPACITY_SHRINK_LIMIT) { // size * LIMIT < capacity 才缩容量
         return;
     }
 
     // 备份原来的数组
     T * oldelem = _elem;
-    _capacity >>= 1; // 容量缩小一半
-    _elem = new T[_capacity >> 1]; // 重新开辟空间
+    _capacity /= CAPACITY_MULTIPLIER_SHRINK; // 容量缩小一半
+    _elem = new T[_capacity]; // 重新开辟空间
 
     // 复制元素
     for (int i = 0; i < _size; ++i) {

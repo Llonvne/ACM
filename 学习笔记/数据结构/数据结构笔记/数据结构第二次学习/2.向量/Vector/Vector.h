@@ -1,13 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 #pragma once
-
-typedef int Rank; // 定义 秩
-#define DEFAULT_CAPACITY (3)
-enum class Search_Mode : unsigned int
-{
-    BinarySearch, FibonacciSearch,BinarySearch_2,InterpolationSearch
-};
+#include "Vector_Definitions.h"
 // 向量 Vector 模版类
 template<typename T>
 class Vector

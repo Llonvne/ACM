@@ -13,28 +13,28 @@ Vector<T>::Vector(int c)
     _capacity = c;
     _elem = new T[_capacity];
     _size = 0;
-    defaultSearchMode = Search_Mode::BinarySearch;
+    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const T * A, Rank lo, Rank hi)
 {
     copyFrom(A, lo, hi);
-    defaultSearchMode = Search_Mode::BinarySearch;
+    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V, Rank lo, Rank hi)
 {
     copyFrom(V._elem, lo, hi);
-    defaultSearchMode = Search_Mode::BinarySearch;
+    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
 Vector<T>::Vector(const Vector<T> & V)
 {
     copyFrom(V._elem, 0, V._size);
-    defaultSearchMode = Search_Mode::BinarySearch;
+    defaultSearchMode = DEFAULT_SEARCH_MODE;
 }
 
 template<typename T>
@@ -46,7 +46,7 @@ Vector<T>::~Vector()
 template<typename T>
 void Vector<T>::copyFrom(const T * A, Rank lo, Rank hi)
 {
-    _capacity = (hi - lo) * 2; // 开辟两倍于区间大小的内存，为什么后面讲
+    _capacity = (hi - lo) * CAPACITY_MULTIPLIER_EXPAND; // 开辟两倍于区间大小的内存，为什么后面讲
     _elem = new T[_capacity];
 
     // 复制元素

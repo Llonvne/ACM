@@ -5,7 +5,7 @@
 #ifndef VECTOR_INTERPOLATION_SEARCH_H
 #define VECTOR_INTERPOLATION_SEARCH_H
 // 插值查找 均匀独立的随机的分布 O(logN)
-#include "../Vector.h"
+#include "../Vector_Definitions.h"
 template <typename T>
 Rank InterpolationSearch(T * A, T const & e, Rank lo, Rank hi){
     while (lo < hi){
