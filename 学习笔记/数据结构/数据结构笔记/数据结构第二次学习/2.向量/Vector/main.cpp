@@ -4,6 +4,7 @@
 #define DEBUG // DEBUG
 #define SHRINK
 #include "Vector.h"
+#define FIBONACII
 
 int main()
 {
@@ -49,6 +50,7 @@ int main()
     // 查找
     test_expand.print();
     std::cout << test_expand.find(99, 0, 3) << std::endl;
+    std::cout << test_expand.find(4) << std::endl;
 
     // 去重复
     int de_array[] = {1, 1, 1, 2, 2, 2, 3, 3};
@@ -61,14 +63,21 @@ int main()
     std::cout << de.disordered() << std::endl;
     std::cout << de.sorted() << std::endl;
 
-    // 有序向量唯一化
+    // 有序向量唯一化 低效率版本
     int sorted[] = {1,1,1,2,2,3,4,5,6,7,7,7,7,9};
     Vector<int> sorted_V(sorted,0,14);
     sorted_V.uniquify_v1();
     sorted_V.print();
 
+    // 有序向量唯一化 高效率版本
     int sorted_2[] = {1,1,1,2,2,3,4,5,6,7,7,7,7,9};
     Vector<int> sorted_V2(sorted_2,0,14);
     sorted_V2.uniquify();
     sorted_V2.print();
+
+    // 查找原理算法
+    std::cout << sorted_V2.search_v1(3,0,8) << std::endl;
+
+    // FIBONACCI 查找
+    std::cout << sorted_V2.search(3,0,8) << std::endl;
 }
