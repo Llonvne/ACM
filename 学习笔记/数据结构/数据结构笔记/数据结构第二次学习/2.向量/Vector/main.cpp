@@ -4,7 +4,7 @@
 #define DEBUG // DEBUG
 #define SHRINK
 #include "Vector.h"
-#define FIBONACII
+
 
 int main()
 {
@@ -79,5 +79,7 @@ int main()
     std::cout << sorted_V2.search_v1(3,0,8) << std::endl;
 
     // FIBONACCI 查找
-    std::cout << sorted_V2.search(3,0,8) << std::endl;
+    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::FibonacciSearch) << std::endl;
+
+    std::cout << "If you can see this means test pass!";
 }

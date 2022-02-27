@@ -1,9 +1,11 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#pragma once
 
 //--- 配置项 ---//
 // 定义 DEBUG 宏变量来启用debug函数，DEBUG模式会有一些不优秀的算法
 // 定义 SHRINK 宏变量来开启缩小容量模式,默认将不会缩小向量
+//
 
 #include <utility>
 #include <algorithm>
@@ -86,10 +88,10 @@ public:
     int uniquify();
 
     //--- 有序向量查找 ---//
-    Rank search(const T & e, Rank lo, Rank hi) const;
+    enum class Search_Mode : unsigned int {BinarySearch,FibonacciSearch};
+    Rank search(const T & e, Rank lo, Rank hi, Search_Mode mode = Search_Mode::BinarySearch) const;
     // 全局搜索
-    Rank search(const T & e) const;
-
+    Rank search(const T & e, Search_Mode mode = Search_Mode::BinarySearch) const;
 
     //--- Debug函数声明 ---//
     #ifdef DEBUG
@@ -104,15 +106,6 @@ public:
     #endif
 };
 
-
-#include "Vector_Dynamic_Capacity_Adjustment.h"
-
-#include "Vector_Constructors_Destructor.h"
-
-#include "Vector_Debug_Only.h"
-
-#include "Vector_Static_Operation.h"
-
-#include "Vector_Dynamic_Operations.h"
+#include "Vector_Includes.h"
 
 #endif //VECTOR_H
