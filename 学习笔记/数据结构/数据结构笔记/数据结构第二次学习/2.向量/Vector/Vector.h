@@ -2,59 +2,45 @@
 #define VECTOR_H
 #pragma once
 
-//--- 配置项 ---//
-// 定义 DEBUG 宏变量来启用debug函数，DEBUG模式会有一些不优秀的算法
-// 定义 SHRINK 宏变量来开启缩小容量模式,默认将不会缩小向量
-//
-
-#include <utility>
-#include <algorithm>
-
 typedef int Rank; // 定义 秩
 #define DEFAULT_CAPACITY (3)
-
+// 向量 Vector 模版类
 template<typename T>
-class Vector // 向量模版类
+class Vector
 {
 private:
-    // 下划线一方面表示内部变量，一方面与下面的接口函数做出区分
-    Rank _size = 0; // 规模
-    int _capacity = DEFAULT_CAPACITY; // 容量
-    T * _elem; // 数据区域
+    // 规模
+    Rank _size = 0;
+    // 容量
+    int _capacity = DEFAULT_CAPACITY;
+    // 数据区域
+    T * _elem;
 
     // 复制构造函数
     void copyFrom(T const * A, Rank lo, Rank hi);
-
     // 拓展向量容量
     void expand();
-
     // 缩小向量容量
     void shrink();
-protected:
 public:
     //--- 构造函数 ---//
-    // 初始化容量构造函数
-    explicit Vector(int c = DEFAULT_CAPACITY); // 使用 explicit 来禁止隐式转换 详见 C++单参数构造函数 隐式转换
-
-    // 复制数组构造函数
-    Vector(T const * A, Rank lo, Rank hi); // 通过 const 来确保不修改 A 数据和接受常量数组
-
+    // 初始化容量构造函数 使用 explicit 来禁止隐式转换 详见 C++单参数构造函数 隐式转换
+    explicit Vector(int c = DEFAULT_CAPACITY);
+    // 复制数组构造函数 通过 const 来确保不修改 A 数据和接受常量数组
+    Vector(T const * A, Rank lo, Rank hi);
     // 复制向量区间构造函数
     Vector(Vector<T> const & V, Rank lo, Rank hi);
-
     // 复制向量整体构造函数
     Vector(Vector<T> const & V);
 
     //--- 析构函数 ---//
     // 释放 new 开辟的 _elem 的空间
-    ~Vector()
-    {
-        delete[] _elem;
-    }
+    ~Vector();
 
-    //--- 重载下标操作符 ---//
+    //--- 重载下标操作符 & at访问函数 ---//
     T & operator[](Rank r) const; // 用const来修饰this指针以保证不修改内部元素，以访问常量向量
-    // 通过引用既可以作为右值，也可以作为左值
+    // 提供与 STL Vector 容器一样提供边界检查的 at 访问函数
+    T & at(Rank r) const;
 
     //--- 插入 ---//
     // 在 r 位置插入 e 元素，通过常量引用来加快速度
@@ -88,14 +74,17 @@ public:
     int uniquify();
 
     //--- 有序向量查找 ---//
-    enum class Search_Mode : unsigned int {BinarySearch,FibonacciSearch};
+    enum class Search_Mode : unsigned int
+    {
+        BinarySearch, FibonacciSearch,BinarySearch_2
+    };
     Rank search(const T & e, Rank lo, Rank hi, Search_Mode mode = Search_Mode::BinarySearch) const;
     // 全局搜索
     Rank search(const T & e, Search_Mode mode = Search_Mode::BinarySearch) const;
 
     //--- Debug函数声明 ---//
     #ifdef DEBUG
-    // 测试Print函数
+    // 输出所有的内部的元素，如果要自定义类型需要重载 << 操作符
     void print() const;
     // 繁琐错误的 deduplicate
     int deduplicate_1();

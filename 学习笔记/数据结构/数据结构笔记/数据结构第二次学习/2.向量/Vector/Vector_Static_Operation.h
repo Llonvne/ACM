@@ -4,39 +4,21 @@
 
 #ifndef VECTOR_STATIC_OPERATION_H
 #define VECTOR_STATIC_OPERATION_H
+#pragma once
 #include "Vector.h"
-#include "../../1.绪论/src/fibnacci/fibnacciClassSmall.cpp"
-using Fib = Fibnacci;
-template<typename T>
-static Rank fibSearch(T * A, T const & e, Rank lo, Rank hi)
-{
-    Fib fib(hi - lo);
-    while (lo < hi) {
-        while (hi - lo < fib.get()) {
-            fib.prev();
-        }
-        Rank mi = lo + fib.get() - 1;
-        if (e < A[mi]) { // 目标小于中点
-            hi = mi; // 往左侧
-        }
-        else if (A[mi] < e) { // 目标大于中点
-            lo = mi + 1;
-        }
-        else { // 命中
-            return mi;
-        }
-    }
-    return -1;
-}
-
+#include "SimpleError.h"
+#include "Vector_Search.h"
 template<typename T>
 Rank Vector<T>::search(const T & e, Rank lo, Rank hi, Search_Mode mode) const
 {
     if (mode == Search_Mode::BinarySearch){
-        return 0;
+        return binSearch(_elem,e,lo,hi);
     }
-    else {
+    else if (mode == Search_Mode::FibonacciSearch){
         return fibSearch(_elem,e,lo,hi);
+    }
+    else if (mode == Search_Mode::BinarySearch_2){
+        return binSearch_2(_elem, e, lo, hi);
     }
 }
 
@@ -92,6 +74,18 @@ template<typename T>
 T & Vector<T>::operator[](Rank r) const
 {
     return _elem[r];
+}
+
+template<typename T>
+T & Vector<T>::at(Rank r) const
+{
+    // 与 STL at相同提供边界检查，但是内部还是由 [] 实现
+    if (r < 0 || r >= _size){
+        error_message("Rank out of range");
+    }
+    else {
+        return this->operator[](r);
+    }
 }
 
 #endif //VECTOR_STATIC_OPERATION_H

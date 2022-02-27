@@ -4,6 +4,7 @@
 
 #ifndef VECTOR_DEBUG_ONLY_H
 #define VECTOR_DEBUG_ONLY_H
+#pragma once
 //--- Debug 函数实现 ---//
 #include "Vector.h"
 #ifdef DEBUG

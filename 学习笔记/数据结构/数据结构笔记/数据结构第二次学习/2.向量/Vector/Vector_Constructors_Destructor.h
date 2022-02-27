@@ -4,6 +4,7 @@
 
 #ifndef VECTOR_CONSTRUCTORS_DESTRUCTOR_H
 #define VECTOR_CONSTRUCTORS_DESTRUCTOR_H
+#pragma once
 #include "Vector.h"
 
 template<typename T>
@@ -30,6 +31,12 @@ template<typename T>
 Vector<T>::Vector(const Vector<T> & V)
 {
     copyFrom(V._elem, 0, V._size);
+}
+
+template<typename T>
+Vector<T>::~Vector()
+{
+    delete[] _elem;
 }
 
 template<typename T>

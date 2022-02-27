@@ -1,5 +1,3 @@
-#include <iostream>
-
 // 导入向量类
 #define DEBUG // DEBUG
 #define SHRINK
@@ -80,6 +78,14 @@ int main()
 
     // FIBONACCI 查找
     std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::FibonacciSearch) << std::endl;
-
+    // 调用默认Bin查找 或者显式调用bin查找
+    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch) << std::endl;
+    // BinarySearch 2
+    std::cout << sorted_V2.search(3,Vector<int>::Search_Mode::BinarySearch_2) << std::endl;
+    // at 函数
+    sorted_V2.print();
+    std::cout << sorted_V2.at(0) << std::endl;
+    // 以下会导致越界
+    //std::cout << sorted_V2.at(-1) << std::endl;
     std::cout << "If you can see this means test pass!";
 }

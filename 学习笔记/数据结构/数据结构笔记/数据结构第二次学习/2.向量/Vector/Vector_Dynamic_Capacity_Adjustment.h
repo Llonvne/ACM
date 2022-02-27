@@ -4,7 +4,10 @@
 
 #ifndef VECTOR_DYNAMIC_CAPACITY_ADJUSTMENT_H
 #define VECTOR_DYNAMIC_CAPACITY_ADJUSTMENT_H
+#pragma once
+#include <algorithm>
 #include "Vector.h"
+
 template<typename T>
 void Vector<T>::expand()
 {
@@ -26,6 +29,7 @@ void Vector<T>::expand()
 
     delete[] oldelem; // 释放原数组内存
 }
+
 template<typename T>
 void Vector<T>::shrink()
 {
@@ -51,4 +55,5 @@ void Vector<T>::shrink()
     delete[] oldelem;
     #endif
 }
+
 #endif //VECTOR_DYNAMIC_CAPACITY_ADJUSTMENT_H

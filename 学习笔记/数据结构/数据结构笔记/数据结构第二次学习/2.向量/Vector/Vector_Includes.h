@@ -4,6 +4,7 @@
 
 #ifndef VECTOR_INCLUDES_H
 #define VECTOR_INCLUDES_H
+#pragma once
 
 #include "Vector_Dynamic_Capacity_Adjustment.h"
 
