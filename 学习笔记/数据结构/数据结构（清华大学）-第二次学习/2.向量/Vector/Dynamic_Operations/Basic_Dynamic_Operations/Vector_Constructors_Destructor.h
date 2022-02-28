@@ -34,6 +34,12 @@ Vector<T>::Vector(const Vector<T> & V)
 }
 
 template<typename T>
+Vector<T>::Vector(const T * A, int N)
+{
+    copyFrom(_elem,0,N);
+}
+
+template<typename T>
 Vector<T>::~Vector()
 {
     delete[] _elem;

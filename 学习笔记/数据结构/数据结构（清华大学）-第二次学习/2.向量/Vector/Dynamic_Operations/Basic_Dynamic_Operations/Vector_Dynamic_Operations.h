@@ -74,33 +74,28 @@ void Vector<T>::traverse(VST & visit)
 }
 
 template<typename T>
-int Vector<T>::uniquify()
-{
-    Rank i = 0, j = 0;
-    while (++j < _size) { // 循环所有元素
-        if (_elem[i] != _elem[j]) { // 如果雷同
-            _elem[++i] = _elem[j]; // 将j移动到 i+1，同时i向后移动
-        }
-    }
-    // 此时i是最后一个不重复元素的下标
-    _size = ++i; // 规模的最后一个元素的下标+1
-    shrink(); // 如果有必要就减少容量
-    return j - i; // 此时 j 就是原来数组的大小 i == _size 是现在数组的大小
-}
-
-template<typename T>
 Vector<T> & Vector<T>::operator=(const Vector<T> & V)
 {
-    copyFrom(V._elem);
+    delete[] _elem;
+    copyFrom(V,0,V._size);
     return *this;
 }
 
 template<typename T>
 void Vector<T>::resize(int size)
 {
-    _size = size;
+    if (size >= 0){
+        _size = size;
+    }
     shrink();
     expand();
 }
+
+template<typename T>
+void Vector<T>::pop_back()
+{ // 使用惰性删除
+    resize(_size -1);
+}
+
 
 #endif //VECTOR_DYNAMIC_OPERATIONS_H

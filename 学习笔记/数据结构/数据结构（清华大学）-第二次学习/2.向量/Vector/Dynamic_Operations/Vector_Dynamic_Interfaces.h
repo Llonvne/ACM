@@ -12,4 +12,6 @@
 #include "Basic_Dynamic_Operations/Vector_Dynamic_Capacity_Adjustment.h"
 // 导入排序函数
 #include "./Sort/Vector_Sort_Interfaces.h"
+// 导入唯一化函数
+#include "./Basic_Dynamic_Operations/Vector_Uniquify_deduplicate.h"
 #endif //VECTOR_DYNAMIC_INTERFACES_H

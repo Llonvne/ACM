@@ -37,14 +37,12 @@ bool BitMap<T>::test(T k)
 template<typename T>
 void BitMap<T>::set(T k)
 {
-    expand(k);
     M[k >> 3] |= (0x80 >> (k & 0x07));
 }
 
 template<typename T>
 void BitMap<T>::clear(T k)
 {
-    expand(k);
     M[k >> 3] &= ~(0x80 >> (k & 0x07));
 }
 

@@ -140,7 +140,11 @@ int main()
     std::cout << (V1 == V2) << std::endl;
     std::cout << (V1 == Vector<int>(unsort,0,5)) << std::endl;
 
-
+    // deduplicateBasedCompared
+    int unsort4[16] = {3,3,1,5,7,4,2,6,8,2,2,2,6,8,1,1120};
+    Vector<int> sorted_V3(unsort4,0,16);
+    sorted_V3.deduplicateBasedCompared();
+    sorted_V3.print();
 
 
     std::cout << "If you can see this means test pass!";

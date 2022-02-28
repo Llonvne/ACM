@@ -31,6 +31,8 @@ public:
     explicit Vector(int c = DEFAULT_CAPACITY);
     // 复制数组构造函数 通过 const 来确保不修改 A 数据和接受常量数组
     Vector(T const * A, Rank lo, Rank hi);
+    // 复制数组构造函数，重载上面函数，用数组长度
+    Vector(T const * A,int N);
     // 复制向量区间构造函数
     Vector(Vector<T> const & V, Rank lo, Rank hi);
     // 复制向量整体构造函数
@@ -66,6 +68,8 @@ public:
     T remove(Rank r);
     // 惰性删除
     void resize(int size);
+    // 删除最后一个元素
+    void pop_back();
 
     //--- 无序查找 ---//
     // 区间查找
@@ -86,7 +90,8 @@ public:
     //--- 去重复函数 ---//
     // 有序向量去重复函数
     int uniquify();
-
+    int deduplicateBasedCompared();
+    int deduplicate();
     //--- 搜索算法---//
     // 区间搜索
     Rank search(const T & e, Rank lo, Rank hi) const;
@@ -105,7 +110,7 @@ public:
     #ifdef DEBUG
     // 输出所有的内部的元素，如果要自定义类型需要重载 << 操作符
     void print() const;
-    // 繁琐错误的 deduplicate
+    // 繁琐错误的 deduplicateBasedCompared
     int deduplicate_1();
     // 低效的有序向量去重复
     int uniquify_v1();
