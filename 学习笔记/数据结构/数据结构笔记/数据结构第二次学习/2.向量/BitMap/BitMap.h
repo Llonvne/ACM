@@ -56,4 +56,6 @@ BitMap<T>::~BitMap()
 }
 
 
+
+
 #endif //BITMAP_H

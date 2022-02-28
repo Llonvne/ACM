@@ -53,6 +53,9 @@ public:
     ~Prime(){
         delete _elem;
     }
+    bool isPrime(){
+        return _elem->test(k);
+    }
     // 将所有质数组织为向量 通过 & 返回来提高效率
     void returnPrimeInVector(vector<int>& primeList){
         for (int i = MIN_PRIME; i < N; ++i) {

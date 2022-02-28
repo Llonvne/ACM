@@ -32,7 +32,7 @@ Rank Vector<T>::push_back(const T & e)
 template<typename T>
 Rank Vector<T>::insert_InOrder(const T & e)
 {
-    insert(this->search(e) + 1,e);
+    insert(search(e) + 1,e);
 }
 
 template<typename T>
@@ -93,6 +93,14 @@ Vector<T> & Vector<T>::operator=(const Vector<T> & V)
 {
     copyFrom(V._elem);
     return *this;
+}
+
+template<typename T>
+void Vector<T>::resize(int size)
+{
+    _size = size;
+    shrink();
+    expand();
 }
 
 #endif //VECTOR_DYNAMIC_OPERATIONS_H

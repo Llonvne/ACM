@@ -64,6 +64,8 @@ public:
     int remove(Rank lo, Rank hi);
     // 单个元素删除
     T remove(Rank r);
+    // 惰性删除
+    void resize(int size);
 
     //--- 无序查找 ---//
     // 区间查找
@@ -80,7 +82,6 @@ public:
     int disordered() const;
     // 有序判断函数
     bool sorted() const;
-    //--- 是否有序判断 END ---//
 
     //--- 去重复函数 ---//
     // 有序向量去重复函数
