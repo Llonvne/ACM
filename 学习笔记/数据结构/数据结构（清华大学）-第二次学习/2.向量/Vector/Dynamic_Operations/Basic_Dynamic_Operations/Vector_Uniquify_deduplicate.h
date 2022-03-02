@@ -81,7 +81,7 @@ int Vector<T>::deduplicateBasedCompared()
     setSearchMode(old_search_mode);
     resize(top); // 采用惰性删除
     shrink(); // 有必要的话 缩小容量
-    return _size - top;
+    return oldsize - top;
 }
 
 #endif //VECTOR_UNIQUIFY_DEDUPLICATE_H

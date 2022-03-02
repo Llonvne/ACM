@@ -25,6 +25,10 @@ private:
     void expand();
     // 缩小向量容量
     void shrink();
+protected:
+    inline T * data(){
+        return _elem;
+    }
 public:
     //--- 构造函数 ---//
     // 初始化容量构造函数 使用 explicit 来禁止隐式转换 详见 C++单参数构造函数 隐式转换
@@ -50,6 +54,8 @@ public:
     T & operator[](Rank r) const; // 用const来修饰this指针以保证不修改内部元素，以访问常量向量
     // 提供与 STL Vector 容器一样提供边界检查的 at 访问函数
     T & at(Rank r) const;
+    T & get(Rank r) const;
+    T get_copy(Rank r) const;
 
     // 长度和空向量函数
     int size() const;

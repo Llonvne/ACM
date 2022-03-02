@@ -50,21 +50,21 @@ Rank Vector<T>::find(const T & e) const
     return find(e, 0, _size);
 }
 
-template<typename T>
+template<typename T> // 提供 get
 T & Vector<T>::operator[](Rank r) const
 {
-    return _elem[r];
+    return get(r);
 }
 
 template<typename T>
 T & Vector<T>::at(Rank r) const
 {
-    // 与 STL at相同提供边界检查，但是内部还是由 [] 实现
+    // 与 STL at相同提供边界检查，但是内部还是由 get 实现
     if (r < 0 || r >= _size) {
         error_message("Rank out of range");
     }
     else {
-        return this->operator[](r);
+        return get(r);
     }
 }
 
@@ -93,5 +93,18 @@ bool Vector<T>::operator==(const Vector<T> & V) const
     }
     return true;
 }
+
+template<typename T>
+T & Vector<T>::get(Rank r) const
+{
+    return _elem[r];
+}
+
+template<typename T>
+T Vector<T>::get_copy(Rank r) const
+{
+    return _elem[r];
+}
+
 
 #endif //VECTOR_STATIC_OPERATIONS_H
