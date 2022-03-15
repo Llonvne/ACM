@@ -6,7 +6,6 @@
 #define VECTOR_CONSTRUCTORS_DESTRUCTOR_H
 #pragma once
 #include "../../Vector.h"
-
 template<typename T>
 Vector<T>::Vector(int c)
 {

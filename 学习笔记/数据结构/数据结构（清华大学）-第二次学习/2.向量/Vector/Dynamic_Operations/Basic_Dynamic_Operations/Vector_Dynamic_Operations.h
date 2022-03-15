@@ -74,7 +74,7 @@ void Vector<T>::traverse(VST & visit)
 }
 
 template<typename T>
-Vector<T> & Vector<T>::operator=(const Vector<T> & V)
+Vector<T> & Vector<T>::operatorr=(const Vector<T> & V)
 {
     delete[] _elem;
     copyFrom(V,0,V._size);

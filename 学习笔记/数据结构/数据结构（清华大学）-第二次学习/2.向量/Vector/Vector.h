@@ -19,8 +19,6 @@ private:
     // 默认排序算法
     Sort_Mode defaultSortMode = DEFAULT_SORT_MODE;
 
-    // 复制构造函数
-    void copyFrom(T const * A, Rank lo, Rank hi);
     // 拓展向量容量
     void expand();
     // 缩小向量容量
@@ -29,6 +27,8 @@ protected:
     inline T * data(){
         return _elem;
     }
+    // 复制构造函数
+    void copyFrom(T const * A, Rank lo, Rank hi);
 public:
     //--- 构造函数 ---//
     // 初始化容量构造函数 使用 explicit 来禁止隐式转换 详见 C++单参数构造函数 隐式转换
