@@ -2,9 +2,10 @@
 // Created by 华邵钶 on 2022/5/22.
 //
 
-#include "MaxHeapify.h"
-#include "HeapOperation.h"
+#include "MaxHeap.h"
+#include "HeapOperations.h"
 #include <utility>
+using namespace std;
 
 void max_heapify(int A[],int n,int i) {
     int l = left(i);
