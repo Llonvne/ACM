@@ -14,7 +14,7 @@ inline int right(int root){
     return 2 * root + 2;
 }
 
-inline int root(int child)
+inline int root(int child)r
 {
     return (child - 1) / 2;
 }

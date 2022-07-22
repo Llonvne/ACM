@@ -18,7 +18,7 @@ public:
     int top();
     int pop();
     int size();
-
+    int push(int x);
 };
 
 

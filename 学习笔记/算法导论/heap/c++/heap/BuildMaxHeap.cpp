@@ -7,7 +7,6 @@
 
 void build_max_heap(int A[], int n)
 {
-    for (int i = n / 2 - 1; i >= 0; --i) {
-        max_heapify_iteration(A, n, i);
-    }
+
+
 }
