@@ -1,3 +1,5 @@
+# 该仓库不会被更新，学习笔记已经迁移到[cs-notes](https://github.com/Llonvne/cs-notes)
+
 # ACM
 
 ---
